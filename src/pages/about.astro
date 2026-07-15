@@ -2,7 +2,7 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "I'm a starter theme for Astro.build",
+	description: "About hyunwoo.org",
 	title: "About",
 };
 ---
@@ -11,26 +11,84 @@ const meta = {
 	<h1 class="title mb-12">About</h1>
 	<div class="prose prose-sm prose-cactus max-w-none">
 		<p>
-			Hi, I’m a starter Astro. I’m particularly great for getting you started with your own blogging
-			website.
+			Hi, my name is <b>Hyunwoo Jo (조현우)</b>. I'm a student majoring in Global Affairs at George Mason University Korea with concentrations in Global Governance and Media, Communication, and Culture and minors in Computational & Data Sciences and Data Analysis. My current research interests lie in public policy analysis and development, especially in international governance and technology, and in higher education administration.
 		</p>
-		<p>Here are my some of my awesome built in features:</p>
-		<ul class="list-inside list-disc" role="list">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-			<li>Satori for auto generating OG images for blog posts</li>
-		</ul>
-		<p>
-			Clone or fork my <a
+
+		<h2 class="title mb-4">Education</h2>
+			<h3 class="title">George Mason University</h3>
+			<p class="mb-2">Fairfax, Virginia, United States</p>
+			<p>
+				<b>Bachelor of Arts in Global Affairs</b><span style="float:right">2022 - 2027</span>
+				<ul class="list-inside list-disc mt-0" role="list">
+					<li>Concentrations: Global Governance and Media, Communication, and Culture</li>
+					<li>Minors: Computational & Data Sciences and Data Analysis</li>
+				</ul>
+			</p>
+
+
+		<h2 class="title mb-4">Experience</h2>
+			<h3 class="title">George Mason University Korea</h3>
+			<p class="mb-2">Incheon, South Korea</p>
+				<details>
+					<summary class="cursor-pointer"><b>Intern, Office of Admissions and Enrollment</b><span style="float:right">Jul 2022 - Feb 2025</span></summary>
+						<ul class="list-inside list-disc mt-0" role="list">
+							<li>Respond to calls and emails regarding application processes and requirements to prospective students, parents, and agencies</li>
+							<li>Index and process documents, such as high school transcripts and standardized test scores</li>
+							<li>Record and document submissions using Microsoft Word/Excel, Salesforce Lifecycle, and Ellucian Banner</li>
+						</ul>
+				</details>
+				<details>
+					<summary class="cursor-pointer"><b>Student Body President</b><span style="float:right">Dec 2022 - Dec 2023</span></summary>
+						<ul class="list-inside list-disc mt-0" role="list">
+							<li>Oversaw an administration of 20 individuals and student leaders to advocate for the needs of the student body as the Student Government's Chief Contracting Officer</li>
+							<li>Organized various events and ceremonies held on-campus, such as the New Student Orientation, Welcome Weekend, Convocation, Student Engagement Fair, and Mason Day</li>
+						</ul>
+				</details>
+				<details>
+					<summary class="cursor-pointer"><b>Global Student Ambassador President</b><span style="float:right">Feb 2023 - Feb 2025</span></summary>
+						<ul class="list-inside list-disc mt-0" role="list">
+							<li>Manage and coordinate future promotional or admissions events with the Office of Admissions and Enrollment</li>
+							<li>Co-lead the recruitment of Global Student Ambassadors within George Mason University Korea able to serve as role-models for prospective students</li>
+						</ul>
+				</details>
+
+			<h3 class="title">Arirang TV</h3>
+			<p class="mb-2">Seoul, South Korea</p>
+				<details>
+					<summary class="cursor-pointer"><b>Panelist (Freelance Journalist)</b><span style="float:right">Sep 2023 - Feb 2025</span></summary>
+						<ul class="list-inside list-disc mt-0" role="list">
+							<li>Conducted research regarding Korea’s latest trends and current affairs from the perspective of those in their twenties and thirties</li>
+							<li>Presented and discussed thoughts and opinions between anchors, panelists, and interviewees, aired live on NEWs GENERATION</li>
+						</ul>
+				</details>
+
+			<h3 class="title">Center for Security Policy Studies-Korea</h3>
+			<p class="mb-2">Incheon, South Korea</p>
+				<details>
+					<summary class="cursor-pointer"><b>Student Fellow</b><span style="float:right">Feb 2024 - Dec 2024</span></summary>
+						<ul class="list-inside list-disc mt-0" role="list">
+							<li>Visited security-related institutions, conducted research projects and events, and established communication with the Center for Security Policy Studies in Arlington</li>
+							<li>Wrote articles, reviews, and research papers on security-related topics, specifically pertaining to Northeast Asia</li>
+						</ul>
+				</details>
+
+	<h2 class="title mb-4">Projects</h2>
+		<h3 class="title">Accessible water quality monitoring through hybrid human–machine colorimetric methods</h3>
+			<p><a 
 				class="cactus-link inline-block"
-				href="https://github.com/chrismwilliams/astro-cactus"
+				href="https://doi.org/10.1007/s10661-025-13983-x"
 				rel="noreferrer"
-				target="_blank">repo</a
-			> if you like me!
-		</p>
+				target="_blank">Environmental Monitoring and Assessment
+			</a></p>
+			<p>The Center for Security Policy Studies-Korea performed a mixed-methods approach to quantitatively assess the water quality of Seunggi-cheon, one of Incheon Metropolitan City’s streams, to better understand its current environmental conditions, and provide actionable policy suggestions.</p>
+
+		<h3 class="title">The Case for Cybersecurity Cooperation in Northeast Asia: Songdo, Korea as a Minilateralist Model</h3>
+			<p><a
+				class="cactus-link inline-block"
+				href="https://icks.org/wp-content/uploads/2026/04/IJKS-Hyunwoo-Jo-Vol-26-No-2-Proof.pdf"
+				rel="noreferrer"
+				target="_blank">International Journal of Korean Studies (IJKS)
+			</a></p>
+			<p>This paper, prepared for the 2026 Incheon Peace and Security Forum, examines the prospects for cybersecurity cooperation in Northeast Asia, where intensifying cyber dependencies intersect with great power rivalry.</p>
 	</div>
 </PageLayout>

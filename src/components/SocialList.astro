@@ -13,15 +13,29 @@ const socialLinks: {
 	name: string;
 }[] = [
 	{
+		friendlyName: "Link in Bio",
+		link: "https://jo.hyunwoo.org",
+		name: "mdi:link-variant",
+	},
+	{
+		friendlyName: "Email",
+		link: "mailto:me@hyunwoo.org",
+		name: "mdi:email-outline",
+	},
+	{
+		friendlyName: "LinkedIn",
+		link: "https://linkedin.com/in/hyunwoojo",
+		name: "mdi:linkedin",
+	},
+	{
 		friendlyName: "Github",
-		link: "https://github.com/chrismwilliams/astro-cactus",
+		link: "https://github.com/hyunwooed",
 		name: "mdi:github",
 	},
 ];
 ---
 
 <div class="flex flex-wrap items-end gap-x-2">
-	<p>Find me on</p>
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
 		{
 			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (
