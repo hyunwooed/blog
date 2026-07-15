@@ -1,0 +1,27 @@
+---
+title: Spring 2023 Convocation Speech
+description: Speech presented during Mason Korea's Spring 2023 Convocation
+publishDate: 2023-02-20
+tags:
+  - mason-korea
+draft: false
+pinned: false
+---
+
+Thank you all for coming to the Spring 2023 Convocation and for having given me the opportunity to talk as a student speaker in front of our community! I realize that some might want the speech in written format, so here it is below in full.
+
+# Spring 2023 Convocation Speech
+
+Distinguished members of our community – whether it be faculty, staff, parents, peers, and most importantly our new incoming Patriots – welcome to the Mason Korea Spring 2023 Convocation! It is with great excitement and honor that I stand here today as a student representative to talk in front of all of you.
+
+George Mason’s President, Dr. Washington, during his visit to our campus last year, stated that "Mason is a place where the only limit is the limit you put on yourself." Looking back, I could not have said it better myself. With my sophomore year ahead of me, Mason Korea has, without a doubt, been one of the most welcoming and diverse communities I have had the chance to be in, setting you up for challenges and success in your academic life. I need not stress the host of benefits that come with being a Mason Korea student – its geographical location, unique and interdisciplinary degree programs, and various learning and research opportunities – instead, let me tell you what is expected of you as a Mason student; take it as advice from a peer of yours, if you will.
+
+First is **the power to be courageous and brave**. Today marks a very important day for all of us – be it your first steps into higher education, your first days in a new academic year, or in my case, talking in front of all of you today. While we all have a long way ahead of us, you are here today because you more than deserve it. No amount of recognition will do justice for your hard work and accomplishments, all of which were achieved because you made that conscious first step outside your comfort zone. Your time here at Mason Korea will undoubtedly have its fair share of challenges, and all I have to say is to never fear the prospect of failure. Speaking from my own experience, getting myself involved in and trying out new things led me to reinforce and newly discover my strengths. Don’t let others or your past define who you are today; think of Mason Korea as your personal academic playground of sorts. Everyone in the community – peers, faculty, and staff – are here to lend you a hand. As such, whether it be leading a group project, joining a student organization, or planning a community initiative, take confidence in your endeavors, and remember, reaching out and asking for help is a sign of courage, not weakness.
+
+Second, **never settle and make the most out of the opportunities given to you**. I say time and time that one of the greatest benefits of being part of a campus with a growing student body but as part of a large, global institution is the number of opportunities there are. Not only will there be plenty of chances for you to build your career and expertise through our research centers, internship openings, and academic projects, but I also advise you to remember the importance of giving back to the community. Remember, the Mason Graduate is “an Engaged Citizen and Well-Rounded Scholar who is Prepared to Act.” Not only should you rightfully focus on your studies as a student, but you also have both the right and duty to solve the increasingly difficult and complex challenges that face us today, one small step at a time. Start with our community – what kind of problems do I see and what can I do about it? Make your voice be heard, working with others. No matter how small or large, your first steps engaging with the community will lead you to places you would have never thought to be in otherwise – it sure did for me. At Mason, we are never content with the “good enough” present, we challenge ourselves to find what more can be done for a better future.
+
+That leads perfectly to the last piece of advice I have, which is to **remember to show off your Patriot Pride**. As faces and representatives of Mason Korea, I ask each one of you to be a role model not only to those within our community but also in and outside the Incheon Global Campus as well. Of course, first and foremost would be to build a sense of inclusion and belonging amongst ourselves. No matter how you were admitted, what your major is, the simple truth is that we are now part of one Mason family. Our differences are what makes us succeed, and at Mason Korea, we thrive together. Bridging the conflicts in today’s increasingly divided society is not a feat we face alone, starting with our very own community. From taking part in our Mason Mondays and university events to standing up for your peers, take pride in your strides, knowing that you are a Mason Korea student.
+
+Again, welcome all to Mason Korea – while you have spared me a few minutes of your time, don’t forget that today is your day! On behalf of the Student Government and the rest of the student body, we are more than thrilled to have such an exciting new addition to our community. Remember that if you have any questions or concerns, I am here to support you on your journey alongside your peers, faculty, and staff. Have a wonderful Spring 2023 semester!
+
+Thank you!
