@@ -32,8 +32,9 @@ const post = defineCollection({
 				.transform((val) => new Date(val)),
 			updatedDate: z
 				.string()
+				.or(z.date())
 				.optional()
-				.transform((str) => (str ? new Date(str) : undefined)),
+				.transform((val) => (val ? new Date(val) : undefined)),
 			pinned: z.boolean().default(false),
 		}),
 });
@@ -42,9 +43,12 @@ const note = defineCollection({
 	loader: glob({ base: "./content/notes", pattern: "**/*.{md,mdx}" }),
 	schema: baseSchema.extend({
 		description: z.string().optional(),
-		publishDate: z.iso
-			.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
-			.transform((val) => new Date(val)),
+		publishDate: z.preprocess(
+				(val) => (val instanceof Date ? val.toISOString() : val),
+				z.iso
+					.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
+					.transform((val) => new Date(val)),
+			)
 	}),
 });
 
