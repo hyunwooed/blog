@@ -12,4 +12,4 @@ As one of my pledges when I ran for Student Government President, I had the hono
 
 I thank the Office of Academic Affairs and Faculty Affairs for supporting my presentation in front of faculty members during our Faculty Development Week. The full presentation can be found below in full:
 
-[Bringing Classroom Assessment Techniques (CATs) to Mason Korea.pdf](https://media.hyunwoo.org/cms-uploads/Bringing_Classroom_Assessment_Techniques_(CATs)_to_Mason_Korea.pdf)
+[Bringing Classroom Assessment Techniques (CATs) to Mason Korea.pdf](<https://media.hyunwoo.org/cms-uploads/Bringing_Classroom_Assessment_Techniques_(CATs)_to_Mason_Korea.pdf>)

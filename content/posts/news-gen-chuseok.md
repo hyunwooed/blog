@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/QEvF5im74gs/maxresdefault.jpg
-  alt: '[NEWs GEN] What you should watch this Chuseok'
+  alt: "[NEWs GEN] What you should watch this Chuseok"
 draft: false
 pinned: false
 ---

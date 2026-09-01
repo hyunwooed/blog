@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/7h_OAbDrQGU/maxresdefault.jpg
-  alt: '[NEWs GEN] Kangaroo Tribe: Why 6 out of 10 young adults still live with their parents'
+  alt: "[NEWs GEN] Kangaroo Tribe: Why 6 out of 10 young adults still live with their parents"
 draft: false
 pinned: false
 ---

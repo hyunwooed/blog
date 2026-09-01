@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/NVFajjECHS4/maxresdefault.jpg
-  alt: '[NEWs GEN] From Niche to Kitsch: Virtual idols shake K-pop industry'
+  alt: "[NEWs GEN] From Niche to Kitsch: Virtual idols shake K-pop industry"
 draft: false
 pinned: false
 ---

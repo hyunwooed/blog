@@ -10,7 +10,7 @@ pinned: false
 
 [Mason Korea Sophomore Presents at Songdo Smart City Urban Tech Program](https://masonkorea.gmu.edu/articles/18791)
 
-Throughout November and December of 2022, I participated in the Last Mile Delivery Living Lab Season 2 program organized by the Ministry of Land, Infrastructure and Transport (MOLIT) and sponsored by the Incheon Free Economic Zone (IFEZ), Incheon Startup Park, and Yonsei University. 
+Throughout November and December of 2022, I participated in the Last Mile Delivery Living Lab Season 2 program organized by the Ministry of Land, Infrastructure and Transport (MOLIT) and sponsored by the Incheon Free Economic Zone (IFEZ), Incheon Startup Park, and Yonsei University.
 
 The program, in essence, is a community-led initiative to solve many of the food delivery problems that Songdo faces through delivery robots; with the Incheon Global Campus also participating, many students were able to witness delivery robots bringing their food up to their rooms without the need to go down the elevator simply using [Yogiyo](https://www.yogiyo.co.kr/), a popular food delivery app.
 

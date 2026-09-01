@@ -29,7 +29,7 @@ I think this is especially the case for me because Korean culture really focuses
 
 - **In light of it being a new semester, we're going to walk our viewers through the college roadmap most freshmen go through. What are some distinctive things Korean college freshmen experience? What are some unique parts of Korean college experience?**
 
-There’s a lot of things that are unique to the Korean college experience! We put a lot of meaning into our sense of belonging, for example, your major or clubs that you’re involved in, which we make friendship circles out of. Age is also another important one since there’s a very unique Senior-Junior relationship in Korea called the 선배 – 후배 Culture, where you treat your seniors with respect and they take care of you. That relationship gets passed down when you become an upperclassmen yourself, which I find really interesting. 
+There’s a lot of things that are unique to the Korean college experience! We put a lot of meaning into our sense of belonging, for example, your major or clubs that you’re involved in, which we make friendship circles out of. Age is also another important one since there’s a very unique Senior-Junior relationship in Korea called the 선배 – 후배 Culture, where you treat your seniors with respect and they take care of you. That relationship gets passed down when you become an upperclassmen yourself, which I find really interesting.
 
 - **Hyun-woo. As you mentioned before, I think you can compare what it's like for freshmen in the States and Korea because you go to a U.S. school based in South Korea. What do you think is the biggest cultural difference between Korean and American freshmen students at college? How different is it going to a Korean university vs. American university?**
 

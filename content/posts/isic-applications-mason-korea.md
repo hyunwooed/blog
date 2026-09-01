@@ -15,10 +15,8 @@ Thanks to a collaborative effort between Student Government and the Office of Un
 ## [What is the ISIC?](https://www.isic.co.kr/home/card-isic.jsp)
 
 > The ISIC card allows students the world over to prove their official student status and make the most of thousands of targeted student benefits and discounts in over 114 countries/territories.
-> 
-> 
+>
 > Developed to help nurture cross-cultural understanding and international exchange, the card originally provided students with access to exclusive discounts on travel opportunities, allowing cardholders to discover and interact with new countries, cultures and languages at reduced rates.
-> 
 
 Students may issue the Card through the [following banks and options:](https://www.isic.co.kr/home/bankcard-design.jsp) IBK (check card only), Shinhan Bank (check card only), or Hana Bank (check card or exclusively as an identity card). The issuance fee is KRW 17,000 for a one-year expiration and KRW 34,000 for two years.
 

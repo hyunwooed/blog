@@ -22,7 +22,7 @@ Getting your own domain also means that you can create your own, personalized em
 
 In my case, I don’t need paid solutions but I still want to send emails on a few occasions through my new custom email, which is why I use [Zoho Mail](https://www.zoho.com/mail/) that gives me 5GB of free storage to use. It’s simple to use but one downside is that I have to use their client for sending and receiving emails on the free plan.
 
-*Update:* I now use [Daum SmartWork (다음 스마트워크)](http://mail.daum.net/smartwork/) for my email hosting as it provides more storage - **20GB per user** for **free** - compared to other alternatives, also allowing SMTP access so I can use other email clients such as Outlook. Only two caveats is that the service is linked with your personal Daum Mail account (shared inboxes) and that the service is primarily in Korean, but other than that, I have been mostly satisfied! It does appear to take longer to send and receive emails than Zoho Mail, though.
+_Update:_ I now use [Daum SmartWork (다음 스마트워크)](http://mail.daum.net/smartwork/) for my email hosting as it provides more storage - **20GB per user** for **free** - compared to other alternatives, also allowing SMTP access so I can use other email clients such as Outlook. Only two caveats is that the service is linked with your personal Daum Mail account (shared inboxes) and that the service is primarily in Korean, but other than that, I have been mostly satisfied! It does appear to take longer to send and receive emails than Zoho Mail, though.
 
 ## Subdomains
 
@@ -30,11 +30,11 @@ Okay, I already have my own website and email address associated with [hyunwoo.o
 
 First of all, I have my custom Linktree at [jo.hyunwoo.org](http://jo.hyunwoo.org) (using [LittleLink](https://littlelink.io)) for shortcuts to important links, which I can use for other social media services such as Instagram. Additionally, I have a URL shortener at [go.hyunwoo.org](http://go.hyunwoo.org) because as you can probably see, links can get long - and to be able to share them on other websites or send it to other people (either verbally or in written format), it’s neater and far more simpler to use. For example, this link can also be accessed via [go.hyunwoo.org/15](http://go.hyunwoo.org/15) instead of the much longer link that can be found in the web browser.
 
-Unfortunately, creating your own URL shortener on a tight budget is harder to do than a website, as most services require hosting them on a server (which means that I need to spend money, if remotely hosted). 
+Unfortunately, creating your own URL shortener on a tight budget is harder to do than a website, as most services require hosting them on a server (which means that I need to spend money, if remotely hosted).
 
 ### ‘Serverless’ URL Shorteners
 
-Then what are some solutions to creating your own URL shortener without spending any money at all? First is to use readily available, public URL shortener services that allow custom domains such as [Short.io](http://Short.io) and [Cutt.ly](http://Cutt.ly). These services, however, have limits in terms of features and how many links you can create. And that really isn’t the point of this endeavor at all - our goal is to create our *own* URL shortener without these arbitrary restrictions.
+Then what are some solutions to creating your own URL shortener without spending any money at all? First is to use readily available, public URL shortener services that allow custom domains such as [Short.io](http://Short.io) and [Cutt.ly](http://Cutt.ly). These services, however, have limits in terms of features and how many links you can create. And that really isn’t the point of this endeavor at all - our goal is to create our _own_ URL shortener without these arbitrary restrictions.
 
 Here are a few solutions that I stumbled upon:
 
@@ -44,7 +44,7 @@ Here are a few solutions that I stumbled upon:
 - [https://github.com/BetaHuhn/cf-worker-redirect](https://github.com/BetaHuhn/cf-worker-redirect) (Cloudflare Workers)
 - [https://github.com/Erisa/worker-links](https://github.com/Erisa/worker-links) (Cloudflare Workers)
 
-Any of these work pretty well, since I don’t plan to use my URL shortener as a public service, simply for me to shorten my own links. If you want to create a URL shortener of your own for others to use, I would suggest looking at other alternatives like Url-Shorten-Worker that creates a frontend (i.e., a static website) for others to enter their desired long URLs. Of course, if you have money floating around or can host your own servers, you can use projects like [https://github.com/yourls/yourls](https://github.com/yourls/yourls). 
+Any of these work pretty well, since I don’t plan to use my URL shortener as a public service, simply for me to shorten my own links. If you want to create a URL shortener of your own for others to use, I would suggest looking at other alternatives like Url-Shorten-Worker that creates a frontend (i.e., a static website) for others to enter their desired long URLs. Of course, if you have money floating around or can host your own servers, you can use projects like [https://github.com/yourls/yourls](https://github.com/yourls/yourls).
 
 ## Conclusion
 

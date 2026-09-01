@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/X1iFPDaW5-U/maxresdefault.jpg
-  alt: '[NEWs GEN] What makes Seoul an attractive travel destination?'
+  alt: "[NEWs GEN] What makes Seoul an attractive travel destination?"
 draft: false
 pinned: false
 ---

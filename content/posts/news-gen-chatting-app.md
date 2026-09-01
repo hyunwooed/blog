@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/TLW4UoxTGZA/maxresdefault.jpg
-  alt: '[NEWs GEN] Which chatting app is the most popular among our generation?'
+  alt: "[NEWs GEN] Which chatting app is the most popular among our generation?"
 draft: false
 pinned: false
 ---

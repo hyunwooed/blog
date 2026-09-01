@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/qMxfO2wtPXE/maxresdefault.jpg
-  alt: '[NEWs GEN] What are your thoughts on public pension?'
+  alt: "[NEWs GEN] What are your thoughts on public pension?"
 draft: false
 pinned: false
 ---
@@ -37,7 +37,7 @@ I personally see why that is, because I remember when I was working part-time an
 
 - **Which countries are still struggling with pension challenges similar to Korea?**
 
-China is one country that has faced similar struggles with its pension fund reported to deplete within 10 years. Its state-endorsed public pension, which is a key part of the country’s three-tier pension system, has seen enrollments dwindle year after year as it too shifts to a more aging society, and more youth refusing to or boycotting making payments because of this risk. 
+China is one country that has faced similar struggles with its pension fund reported to deplete within 10 years. Its state-endorsed public pension, which is a key part of the country’s three-tier pension system, has seen enrollments dwindle year after year as it too shifts to a more aging society, and more youth refusing to or boycotting making payments because of this risk.
 
 - **Korea still has a long way to go before reaching a solution that earns broad public support. What do you think will be the key to fixing the pension system and bridging generational divides?**
 

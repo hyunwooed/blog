@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/FviZOxoQ2KI/maxresdefault.jpg
-  alt: '[NEWs GEN] UN Day: How Korea admitted to the United Nations and what has happened since'
+  alt: "[NEWs GEN] UN Day: How Korea admitted to the United Nations and what has happened since"
 draft: false
 pinned: false
 ---

@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/sY1wmrU_cj8/maxresdefault.jpg
-  alt: '[NEWs GEN] How much does college cost in your country?'
+  alt: "[NEWs GEN] How much does college cost in your country?"
 draft: false
 pinned: false
 ---

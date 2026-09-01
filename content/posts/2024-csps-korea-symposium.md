@@ -20,15 +20,15 @@ The symposium, divided into two sessions, invited both distinguished scholars an
 ## Opening Session
 
 - Welcome Remarks
-**Dr. Gregory Washington**, President of George Mason University (GMU)
+  **Dr. Gregory Washington**, President of George Mason University (GMU)
 - Opening Remarks
-**Dr. Robert Matz**, Campus Dean of George Mason University Korea
-**Dr. Mark Rozell**, Dean of Schar School of Policy and Government, GMU
+  **Dr. Robert Matz**, Campus Dean of George Mason University Korea
+  **Dr. Mark Rozell**, Dean of Schar School of Policy and Government, GMU
 - Congratulatory Remarks
-**General Michael V. Hayden**, Founder of The Michael V. Hayden Center for Intelligence, Policy, and International Security, GMU
-**Mr. James Kim**, Chairman & CEO, The American Chamber of Commerce in Korea
+  **General Michael V. Hayden**, Founder of The Michael V. Hayden Center for Intelligence, Policy, and International Security, GMU
+  **Mr. James Kim**, Chairman & CEO, The American Chamber of Commerce in Korea
 - Concept Note Speech: “Overview of the Indo-Pacific Security Challenges”
-**Dr. Soyoung Kwon**, Director of Center for Security Policy Studies-Korea, GMU
+  **Dr. Soyoung Kwon**, Director of Center for Security Policy Studies-Korea, GMU
 
 ## Session 1
 
@@ -37,13 +37,13 @@ Changing Security Dynamics in the Indo-Pacific and Challenges
 ### Presentations
 
 - “Maintaining Strategic Stability in the US-China Rivalry”
-**Dr. Chaesung Chun**, Seoul National University
+  **Dr. Chaesung Chun**, Seoul National University
 - “Great Power Rivalry and China’s Response”
-**Dr. Ketian Zhang**, Schar School of Policy and Government, GMU
+  **Dr. Ketian Zhang**, Schar School of Policy and Government, GMU
 - “A South Korean Perspective on the US-led Security Network in the Indo-Pacific”
-**Dr. Jae Jeok Park**, Yonsei University
+  **Dr. Jae Jeok Park**, Yonsei University
 - Reputation or Reliability? Washington’s Options in a Taiwan Crisis
-**Dr. Michael Hunzeker**, Schar School of Policy and Government, GMU
+  **Dr. Michael Hunzeker**, Schar School of Policy and Government, GMU
 
 ### Panel Discussion
 
@@ -56,11 +56,11 @@ South Korea’s Contributions as a Middle Power to Regional Security
 ### Remarks
 
 - US Perspective
-**Ambassador Kathleen Stephens**, Former Ambassador of the US to Korea
+  **Ambassador Kathleen Stephens**, Former Ambassador of the US to Korea
 - South Korea’s Perspective
-**Ambassador Ho-Young Ahn**, Former Ambassador of Korea to the US
+  **Ambassador Ho-Young Ahn**, Former Ambassador of Korea to the US
 - China’s Perspective
-**Ambassador Jung-Seung Shin**, Former Ambassador of Korea to China
+  **Ambassador Jung-Seung Shin**, Former Ambassador of Korea to China
 
 ### Roundtable
 
