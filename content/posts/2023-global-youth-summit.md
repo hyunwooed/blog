@@ -11,7 +11,7 @@ draft: false
 pinned: false
 ---
 
-From July 19 to July 26, 2023, I had the honor of participating in the 2023 Global Youth Summit hosted by the Ministry of Gender Equality and Family (MOGEF) and organized by the National Council of Youth Organizations in Korea (NCYOK) as the Representative of Korean Participants. 
+From July 19 to July 26, 2023, I had the honor of participating in the 2023 Global Youth Summit hosted by the Ministry of Gender Equality and Family (MOGEF) and organized by the National Council of Youth Organizations in Korea (NCYOK) as the Representative of Korean Participants.
 
 I thank everyone, from our most distinguished participants to our staff members who made the event possible from start to finish, for one of the most enjoyable and memorable weeks I’ve experienced in my life. For all the friends and colleagues I met along the way, let this summit not be the end, but a starting point for us to meet again!
 
@@ -21,8 +21,7 @@ The 2023 Global Youth Summit was an event held in the International Youth Center
 
 > **[Background]**
 > Providing opportunities for mutual understanding and empathy among youth, who are the future generation, to resolve various conflicts that are intensifying worldwide
-> 
-> 
+>
 > **[Objective]**
 > ① Establishing a platform for face-to-face global youth exchange that builds a network for future generations
 > ② Strengthening global youth capabilities through discussions and training activities on the theme
@@ -63,7 +62,7 @@ During the kick-off ceremony (발대식) on June 24, Korean participants were br
 
 ![](https://media.hyunwoo.org/cms-uploads/2023-global-youth-summit-pre-discussion.jpeg)
 
-As a member of Group 8 covering Topic 4, “The Role of Youth in Respecting and Spreading Cultural Diversity and Value,” we voted a group leader and secretary and worked on a comprehensive pre-assignment outlining issues related to the given subtopic in our respective countries. For your reference, you can find my paper [here]().
+As a member of Group 8 covering Topic 4, “The Role of Youth in Respecting and Spreading Cultural Diversity and Value,” we voted a group leader and secretary and worked on a comprehensive pre-assignment outlining issues related to the given subtopic in our respective countries. For your reference, you can find my paper [here](<>).
 
 ## Opening Ceremony
 
@@ -79,7 +78,7 @@ The opening ceremony of the 2023 Global Youth Summit, held on Day 2, was attende
 
 ![](https://media.hyunwoo.org/cms-uploads/2023-global-youth-summit-closing-ceremony-group-8.jpg)
 
-During the summit itself, our group worked on formulating a comprehensive, globally applicable list of issues and solutions based on the work we had individually completed through the pre-assignments, designing a brochure. The two groups working on the same topic then met up to combine our ideas and draft a recommendation. 
+During the summit itself, our group worked on formulating a comprehensive, globally applicable list of issues and solutions based on the work we had individually completed through the pre-assignments, designing a brochure. The two groups working on the same topic then met up to combine our ideas and draft a recommendation.
 
 The recommendations that all groups worked on were then presented in two summit sessions: Summit I, moderated by the Representative and Vice-Representative of Korean Participants for its drafts and Summit II for the final iterations which were voted upon. Our brochure, together with Group 7, was also voted as the best brochure!
 

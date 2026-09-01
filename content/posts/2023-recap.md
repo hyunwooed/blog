@@ -9,7 +9,7 @@ pinned: false
 ---
 
 > The following was posted as a farewell message and recap of Mason Korea Student Government throughout the 2023 academic year now that my term has ended as Student Body President, and [is also viewable on our website.](https://mason360.gmu.edu/mksg/blog/a-farewell,-thank-you,-and-recap-of-2023/25093/)
-> 
+>
 > On a personal note, I am so honored to have represented Mason Korea and our incredible student body for the 2023 academic year, and I do truly mean it - I can’t wait to see what the future lies ahead for Student Government!
 
 Dear Patriots,

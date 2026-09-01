@@ -22,6 +22,6 @@ As a non-designer myself, I genuinely thank our Committee members who spent thei
 
 After voting, which was conducted through ranked-choice (first and second-choice) voting, our top design was **Design 3**.
 
-Unfortunately, after a few talks with members of our community and the Office of University Branding of the Fairfax Campus, we had to make the decision to postpone the redesign due to an internal brand refresh taking place, which we anticipate will be completed in the next academic year. 
+Unfortunately, after a few talks with members of our community and the Office of University Branding of the Fairfax Campus, we had to make the decision to postpone the redesign due to an internal brand refresh taking place, which we anticipate will be completed in the next academic year.
 
 As unfortunate and disappointing this decision may be – we will, however, hopefully use these designs as a reference in the future for when the Mason Brand Refresh is complete. I like to think of our attempt at such a redesign this semester as a strong foundation for the next semester, where a future Redesign Committee can start off from where we left off to make the ID Card better for all of us.

@@ -13,7 +13,7 @@ pinned: false
 
 This post may be a little overdue, but now that my term as Mason Korea Student Body President is over, I’m excited to announce that I’m moving towards advocating students’ voices not only within the Incheon Global Campus but also within Incheon and Korea in 2024.
 
-On October 16, 2023, I was appointed as a member of Incheon Metropolitan City’s Happiness Policy Advisory Panels for the Citizens (인천광역시 시민행복정책자문단), a position I will be holding until September 2024. Sitting on the panel, I look forward to continuing to express the feedback and suggestions that us youth have as both students and citizens of Incheon. 
+On October 16, 2023, I was appointed as a member of Incheon Metropolitan City’s Happiness Policy Advisory Panels for the Citizens (인천광역시 시민행복정책자문단), a position I will be holding until September 2024. Sitting on the panel, I look forward to continuing to express the feedback and suggestions that us youth have as both students and citizens of Incheon.
 
 [인천시, 제6기 시민행복정책자문단 위촉](https://www.incheonnews.com/news/articleView.html?idxno=414580)
 
@@ -27,6 +27,6 @@ In addition, I had the chance to attend another roundtable meeting with the Mayo
 
 Finally, I had the chance to visit the Office of the President on January to address many of the opinions within the Incheon Global Campus - from national student aids, mentioned above, to difficulties in reserve service (예비군) for the military - to Social Integration staff.
 
-Enhancing and improving the lives of our students is no easy feat, but it is one that we can do together - I’ve received so much help from my fellow peers and colleagues at Mason Korea and other universities within Incheon to push for these important suggestions and feedback that we have, and I can’t thank them enough. 
+Enhancing and improving the lives of our students is no easy feat, but it is one that we can do together - I’ve received so much help from my fellow peers and colleagues at Mason Korea and other universities within Incheon to push for these important suggestions and feedback that we have, and I can’t thank them enough.
 
 While it may seem like a very slow process - and many times, it is - getting our voices heard is, first and foremost, the most important step toward change, and is something that I will continue to do throughout 2024.

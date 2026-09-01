@@ -46,30 +46,30 @@ Having been tasked with the data analysis part of our research, this was my firs
     import matplotlib.pyplot as plt
     import matplotlib as mpl
     import pandas as pd
-    
+
     # Load experiment dataset and sample sites
     stream_data = pd.read_csv('ExperimentData.csv')
     stream_shp = gp.read_file('seunggi_stream_sample_sites.gpkg')
     buildings = gp.read_file('buildings_2km.gpkg')
-    
+
     # Use same site names for stream_shp
     stream_shp['site'] = stream_data['site']
-    
+
     # Merge stream_data and stream_shp into gdf using site name
     gdf = stream_shp.merge(stream_data, how='left', on='site')
     gdf.columns = gdf.columns.str.strip()
-    
+
     # Create new column based on construction conducted near a site
     construction = gdf['site'].isin([
     'site-02-02', 'site-02-05', 'site-02-07',
     'site-02-08', 'site-02-09', 'site-03-03'])
     gdf['Construction'] = construction.astype(int)
     gdf.head()
-    
+
     factories = buildings[buildings['A9']== '공장']
-    
+
     gdf = gp.sjoin_nearest(gdf, factories, distance_col="distances", lsuffix="left", rsuffix="right", exclusive=True)
-    
+
     def gwr_model(X, y):
     	# Prepare stream dataset inputs
     	g_y = gdf[y].values.reshape((-1,1))
@@ -80,7 +80,7 @@ Having been tasked with the data analysis part of our research, this was my firs
     	g_X = (g_X - g_X.mean(axis=0)) / g_X.std(axis=0)
     	g_y = g_y.reshape((-1,1))
     	g_y = (g_y - g_y.mean(axis=0)) / g_y.std(axis=0)
-    	
+
     	# Calibrate GWR model
     	gwr_selector = Sel_BW(g_coords, g_y, g_X)
     	gwr_bw = gwr_selector.search(bw_min=2)

@@ -26,7 +26,7 @@ On October 16, 2023, I was invited to the Appointment Ceremony of the Panel. Rea
 
 ![](https://media.hyunwoo.org/cms-uploads/happiness-policy-5.jpg)
 
-On December 15, 2023, the Youth Division of the Panel was invited to the Incheon Metropolitan Council (인천광역시의회), in which we were able to meet Mr. Heo Sik, Chairperson of the Council (허식 인천광역시의회 의장), and Mr. Han Minsu, Chair of the Council Steering Committee (한민수 의회운영위원장). 
+On December 15, 2023, the Youth Division of the Panel was invited to the Incheon Metropolitan Council (인천광역시의회), in which we were able to meet Mr. Heo Sik, Chairperson of the Council (허식 인천광역시의회 의장), and Mr. Han Minsu, Chair of the Council Steering Committee (한민수 의회운영위원장).
 
 During the one-day excursion, members were able to gain insight on the legislative processes that take place in the Council in addition to the importance of youth-related affairs.
 

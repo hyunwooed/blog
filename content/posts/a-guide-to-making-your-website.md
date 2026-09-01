@@ -10,7 +10,7 @@ pinned: false
 
 Running a website has been a pretty big passion project of mine for a while now. My blog, [hyunwoo.org](https://hyunwoo.org), is now more than one year strong, together with two helpful subdomains - [jo.hyunwoo.org](https://jo.hyunwoo.org) and [go.hyunwoo.org](https://go.hyunwoo.org) - which act as a Link in Bio page and URL shortener respectively.
 
-In this post, I am going to cover how you can create your own website from start to finish, including all of the tools and pages that I currently use. 
+In this post, I am going to cover how you can create your own website from start to finish, including all of the tools and pages that I currently use.
 
 ## Domains
 

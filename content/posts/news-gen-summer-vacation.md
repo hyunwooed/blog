@@ -6,7 +6,7 @@ tags:
   - arirang-tv
 coverImage:
   src: https://img.youtube.com/vi/2xKNMinjFLU/maxresdefault.jpg
-  alt: '[NEWs GEN] How are you spending your summer vacation?'
+  alt: "[NEWs GEN] How are you spending your summer vacation?"
 draft: false
 pinned: false
 ---

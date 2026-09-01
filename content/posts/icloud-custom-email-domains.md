@@ -61,8 +61,8 @@ When adding your new email address itself, enter your new iCloud Custom Email ad
 **IMAP information for the incoming iCloud Mail server**
 
 - Server name: `imap.mail.me.com`
-    - SSL Required: Yes
-        - _If you see an error message when using SSL, try using TLS instead._
+  - SSL Required: Yes
+    - _If you see an error message when using SSL, try using TLS instead._
 - Port: `993`
 - Username: This is usually the name of your iCloud Mail email address (for example, `johnappleseed`, not `johnappleseed@icloud.com`). If your email client app can't connect to iCloud Mail using just the name of your email address, try using the full address.
 - Password: Generate an app-specific password.
@@ -82,9 +82,9 @@ Setting up on iCloud is a little trickier. First, the new Outlook for Windows (P
 
 In Outlook, set up an IMAP account **using your iCloud address** - **not** your custom email address - using the same server settings above.
 
-Now, after you’ve completed setting up your new account, close Outlook and open Registry Editor, navigating to: 
+Now, after you’ve completed setting up your new account, close Outlook and open Registry Editor, navigating to:
 
-`HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Outlook\Profiles<your profile name>`. 
+`HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Outlook\Profiles<your profile name>`.
 
 Press `F3` and search for your iCloud email address, and edit the `Email` field with your **custom email address**. Relaunch Outlook and you should be done - credits to a user on the following Microsoft Community post!
 
@@ -96,6 +96,6 @@ If you also want to use your new Custom Email with Google services such as Googl
 
 [https://myaccount.google.com/alternateemail](https://myaccount.google.com/alternateemail)
 
-Note that if you are using a Google Account that already has Gmail set up, people will be seeing your Gmail address instead of your alternate, custom email one. 
+Note that if you are using a Google Account that already has Gmail set up, people will be seeing your Gmail address instead of your alternate, custom email one.
 
 If you don’t want this, you can set up a new Google Account without a Gmail address by clicking on “**Use your existing email**” in the signup page and use your custom email address instead.
