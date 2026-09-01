@@ -1,8 +1,14 @@
 ---
+import LanguageToggle from "@/components/LanguageToggle.astro";
 import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
-import { menuLinks } from "@/site.config";
-import { siteConfig } from "../../site.config";
+import { getLangFromUrl, getLocalizedUrl, getMenuLinks, useTranslations } from "@/i18n";
+import { siteConfig } from "@/site.config";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const links = getMenuLinks(lang);
+const homePath = getLocalizedUrl("", lang);
 ---
 
 <header
@@ -11,23 +17,21 @@ import { siteConfig } from "../../site.config";
 >
 	<div class="flex sm:flex-col sm:items-start">
 		<a
-			aria-current={Astro.url.pathname === "/" ? "page" : false}
+			aria-current={Astro.url.pathname === homePath ? "page" : false}
 			class="inline-flex items-center sm:relative sm:inline-block"
-			href="/"
+			href={homePath}
 		>
 			{
 				siteConfig.showLogo && (
 					<svg
 						aria-hidden="true"
-						class="me-3 h-7 w-7 sm:absolute sm:-inset-s-18 sm:me-0 sm:h-14 sm:w-14 hover:fill-[#0033A0]"
+						class="hover:fill-accent me-3 h-7 w-7 sm:absolute sm:-inset-s-18 sm:me-0 sm:h-14 sm:w-14"
 						fill="currentColor"
 						focusable="false"
 						viewBox="0 0 378 378"
 						xmlns="http://www.w3.org/2000/svg"
 					>
-						<path
-							d="M378 378H0V0H378V378ZM40 40V338H181L139 254V192C139 187 139 177 124 177C109 177 109 187 109 192V254H69V69H109V152C109 152 119 142 139 142C169 142 179 162 179 192V254L196 288L224 232L179 142H219L244 192L269 142H309L253 254L270 288L298 232H338L285 338H338V40H40ZM211 338H255L233 294L211 338Z" 
-						/>
+						<path d="M378 378H0V0H378V378ZM40 40V338H181L139 254V192C139 187 139 177 124 177C109 177 109 187 109 192V254H69V69H109V152C109 152 119 142 139 142C169 142 179 162 179 192V254L196 288L224 232L179 142H219L244 192L269 142H309L253 254L270 288L298 232H338L285 338H338V40H40ZM211 338H255L233 294L211 338Z" />
 					</svg>
 				)
 			}
@@ -39,9 +43,17 @@ import { siteConfig } from "../../site.config";
 			id="navigation-menu"
 		>
 			{
-				menuLinks.map((link) => (
+				links.map((link) => (
 					<a
-						aria-current={Astro.url.pathname === link.path ? "page" : false}
+						aria-current={
+							link.path === homePath
+								? Astro.url.pathname === homePath
+									? "page"
+									: false
+								: Astro.url.pathname.startsWith(link.path)
+									? "page"
+									: false
+						}
 						class="text-accent px-2 py-4 font-semibold sm:px-4 sm:py-0 sm:underline-offset-2 sm:hover:underline"
 						href={link.path}
 					>
@@ -53,6 +65,7 @@ import { siteConfig } from "../../site.config";
 	</div>
 	<Search />
 	<ThemeToggle />
+	<LanguageToggle />
 	<mobile-button>
 		<button
 			aria-expanded="false"
@@ -61,7 +74,7 @@ import { siteConfig } from "../../site.config";
 			id="toggle-navigation-menu"
 			type="button"
 		>
-			<span class="sr-only">Open main menu</span>
+			<span class="sr-only">{t.global.openMenu}</span>
 			<svg
 				aria-hidden="true"
 				class="absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transition-all group-aria-expanded:scale-0 group-aria-expanded:opacity-0"

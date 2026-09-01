@@ -2,19 +2,27 @@
 import type { GetStaticPaths } from "astro";
 import Note from "@/components/note/Note.astro";
 import { getAllNotes } from "@/data/post";
-import { defaultLang, getCleanSlug, useTranslations } from "@/i18n";
+import { getCleanSlug, nonDefaultLangs, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 
 export const getStaticPaths = (async () => {
-	const allNotes = await getAllNotes(defaultLang);
-	return allNotes.map((note) => ({
-		params: { slug: getCleanSlug(note.id) },
-		props: { note },
-	}));
+	const paths = [];
+
+	for (const lang of nonDefaultLangs) {
+		const allNotes = await getAllNotes(lang);
+		for (const note of allNotes) {
+			paths.push({
+				params: { lang, slug: getCleanSlug(note.id) },
+				props: { note, lang },
+			});
+		}
+	}
+
+	return paths;
 }) satisfies GetStaticPaths;
 
-const { note } = Astro.props;
-const t = useTranslations(Astro.url);
+const { note, lang } = Astro.props;
+const t = useTranslations(lang);
 
 const meta = {
 	description:
@@ -24,6 +32,6 @@ const meta = {
 };
 ---
 
-<PageLayout meta={meta}>
+<PageLayout lang={lang} meta={meta}>
 	<Note as="h1" note={note} />
 </PageLayout>

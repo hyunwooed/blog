@@ -1,31 +1,33 @@
 ---
 import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
+import { defaultLang, getLocalizedUrl, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 
-const allPosts = await getAllPosts();
+const t = useTranslations(Astro.url);
+const allPosts = await getAllPosts(defaultLang);
 const allTags = getUniqueTagsWithCount(allPosts);
 
 const meta = {
-	description: "A list of all the topics I've written about in my posts",
-	title: "All Tags",
+	description: t.tags.description,
+	title: t.tags.allTags,
 };
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-6">Tags</h1>
+	<h1 class="title mb-6">{t.tags.title}</h1>
 	<ul class="space-y-4">
 		{
 			allTags.map(([tag, val]) => (
 				<li class="flex items-center gap-x-2">
 					<a
 						class="cactus-link inline-block"
-						href={`/tags/${tag}/`}
-						title={`View posts with the tag: ${tag}`}
+						href={getLocalizedUrl(`tags/${tag}`, defaultLang)}
+						title={`${t.tags.viewPostsWithTag}: ${tag}`}
 					>
 						&#35;{tag}
 					</a>
 					<span class="inline-block">
-						- {val} Post{val > 1 && "s"}
+						- {val} {val > 1 ? t.tags.posts : t.tags.post}
 					</span>
 				</li>
 			))

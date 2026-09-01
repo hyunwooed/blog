@@ -2,15 +2,23 @@
 import { render } from "astro:content";
 import type { GetStaticPaths } from "astro";
 import { getAllPosts } from "@/data/post";
-import { defaultLang, getCleanSlug } from "@/i18n";
+import { getCleanSlug, nonDefaultLangs } from "@/i18n";
 import PostLayout from "@/layouts/BlogPost.astro";
 
 export const getStaticPaths = (async () => {
-	const blogEntries = await getAllPosts(defaultLang);
-	return blogEntries.map((post) => ({
-		params: { slug: getCleanSlug(post.id) },
-		props: { post },
-	}));
+	const paths = [];
+
+	for (const lang of nonDefaultLangs) {
+		const blogEntries = await getAllPosts(lang);
+		for (const post of blogEntries) {
+			paths.push({
+				params: { lang, slug: getCleanSlug(post.id) },
+				props: { post },
+			});
+		}
+	}
+
+	return paths;
 }) satisfies GetStaticPaths;
 
 const { post } = Astro.props;

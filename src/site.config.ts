@@ -31,6 +31,13 @@ export const siteConfig: SiteConfig = {
 	},
 };
 
+// Content & pagination limits
+export const POSTS_PER_PAGE = 10;
+export const NOTES_PER_PAGE = 10;
+export const MAX_TAGS = 7;
+export const MAX_PINNED_POSTS = 3;
+export const MAX_HOME_NOTES = 5;
+
 // Used to generate links in both the Header & Footer.
 export const menuLinks: { path: string; title: string }[] = [
 	{

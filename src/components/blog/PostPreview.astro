@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import type { HTMLTag, Polymorphic } from "astro/types";
 import FormattedDate from "@/components/FormattedDate.astro";
+import { getEntryUrl, getPostLanguage, useTranslations } from "@/i18n";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	post: CollectionEntry<"post">;
@@ -9,12 +10,19 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 };
 
 const { as: Tag = "div", post, withDesc = false } = Astro.props;
+const postLang = getPostLanguage(post);
+const t = useTranslations(postLang);
+const postHref = getEntryUrl(post, postLang);
 ---
 
-<FormattedDate class="text-muted min-w-30 font-semibold" date={post.data.publishDate} />
+<FormattedDate
+	class="text-muted min-w-30 font-semibold"
+	date={post.data.publishDate}
+	locale={t.locale}
+/>
 <Tag>
-	{post.data.draft && <span class="text-red-500">(Draft) </span>}
-	<a class="cactus-link" href={`/posts/${post.id}/`}>
+	{post.data.draft && <span class="text-red-500">({t.blog.draft}) </span>}
+	<a class="cactus-link" href={postHref}>
 		{post.data.title}
 	</a>
 </Tag>

@@ -1,18 +1,32 @@
 import { type CollectionEntry, getCollection } from "astro:content";
+import { defaultLang, getPostLanguage, type Lang } from "@/i18n";
 
-/** filter out draft posts based on the environment */
-export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
-	return await getCollection("post", ({ data }) => {
-		return import.meta.env.PROD ? !data.draft : true;
+/** filter out draft posts based on the environment and optionally by language */
+export async function getAllPosts(lang?: Lang) {
+	return getCollection("post", (entry) => {
+		const isNotDraft = import.meta.env.PROD ? !entry.data.draft : true;
+		if (!isNotDraft) return false;
+		if (!lang) return true;
+		return getPostLanguage(entry) === lang;
 	});
 }
 
-/** Get tag metadata by tag name */
-export async function getTagMeta(tag: string): Promise<CollectionEntry<"tag"> | undefined> {
-	const tagEntries = await getCollection("tag", (entry) => {
-		return entry.id === tag;
+/** filter notes by language */
+export async function getAllNotes(lang?: Lang) {
+	return getCollection("note", (entry) => {
+		if (!lang) return true;
+		return getPostLanguage(entry) === lang;
 	});
-	return tagEntries[0];
+}
+
+/** Get tag metadata by tag name with optional language fallback */
+export async function getTagMeta(tag: string, lang?: Lang) {
+	const allTags = await getCollection("tag");
+	if (lang && lang !== defaultLang) {
+		const localized = allTags.find((entry) => entry.id === `${lang}/${tag}`);
+		if (localized) return localized;
+	}
+	return allTags.find((entry) => entry.id === tag);
 }
 
 /** groups posts by year (based on option siteConfig.sortPostsByUpdatedDate), using the year as the key
@@ -39,7 +53,7 @@ export function getUniqueTags(posts: CollectionEntry<"post">[]) {
 /** returns a count of each unique tag - [[tagName, count], ...]
  *  Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so.
  *  */
-export function getUniqueTagsWithCount(posts: CollectionEntry<"post">[]): [string, number][] {
+export function getUniqueTagsWithCount(posts: CollectionEntry<"post">[]) {
 	return [
 		...getAllTags(posts).reduce(
 			(acc, t) => acc.set(t, (acc.get(t) ?? 0) + 1),
