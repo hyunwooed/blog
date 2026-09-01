@@ -14,7 +14,7 @@ const t = useTranslations(currentLang);
 <div class:list={["relative ms-2 sm:ms-4", className]}>
 	<button
 		id="language-toggle"
-		class="hover:text-accent flex h-9 w-9 cursor-pointer items-center justify-center rounded-md p-1"
+		class="hover:text-accent relative h-9 w-9 cursor-pointer p-2"
 		type="button"
 		aria-label={t.global.language}
 		aria-expanded="false"
@@ -22,7 +22,7 @@ const t = useTranslations(currentLang);
 	>
 		<svg
 			aria-hidden="true"
-			class="h-6 w-6"
+			class="absolute inset-s-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2"
 			fill="none"
 			stroke="currentColor"
 			stroke-linecap="round"
