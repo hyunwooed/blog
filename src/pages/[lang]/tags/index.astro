@@ -1,0 +1,57 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
+import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
+import PageLayout from "@/layouts/Base.astro";
+
+export const getStaticPaths = (async () => {
+	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
+	const paths = [];
+
+	for (const lang of nonDefaultLangs) {
+		const allPosts = await getAllPosts(lang);
+		const allTags = getUniqueTagsWithCount(allPosts);
+		paths.push({
+			params: { lang },
+			props: { allTags, lang },
+		});
+	}
+
+	return paths;
+}) satisfies GetStaticPaths;
+
+interface Props {
+	allTags: [string, number][];
+	lang: Lang;
+}
+
+const { allTags, lang } = Astro.props;
+const t = useTranslations(Astro.url);
+
+const meta = {
+	description: t.tags.description,
+	title: t.tags.allTags,
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-6">{t.tags.title}</h1>
+	<ul class="space-y-4">
+		{
+			allTags.map(([tag, val]) => (
+				<li class="flex items-center gap-x-2">
+					<a
+						class="cactus-link inline-block"
+						href={getLocalizedUrl(`tags/${tag}`, lang)}
+						title={`${tag} ${t.tags.viewPostsWithTag}`}
+					>
+						&#35;{tag}
+					</a>
+					<span class="inline-block">
+						- {val} {t.tags.posts}
+					</span>
+				</li>
+			))
+		}
+	</ul>
+</PageLayout>

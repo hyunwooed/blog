@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import { getAllPosts } from "@/data/post";
+import { defaultLang, getCleanSlug, type Lang, languageCodes } from "@/i18n";
+import PostLayout from "@/layouts/BlogPost.astro";
+
+export const getStaticPaths = (async () => {
+	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
+	const paths = [];
+
+	for (const lang of nonDefaultLangs) {
+		const blogEntries = await getAllPosts(lang);
+		for (const post of blogEntries) {
+			paths.push({
+				params: { lang, slug: getCleanSlug(post.id) },
+				props: { post, lang },
+			});
+		}
+	}
+
+	return paths;
+}) satisfies GetStaticPaths;
+
+interface Props {
+	post: CollectionEntry<"post">;
+	lang: Lang;
+}
+
+const { post, lang } = Astro.props;
+const { Content } = await render(post);
+---
+
+<PostLayout post={post}>
+	<Content />
+</PostLayout>

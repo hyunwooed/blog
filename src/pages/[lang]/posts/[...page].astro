@@ -5,33 +5,44 @@ import { Icon } from "astro-icon/components";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Pagination from "@/components/Paginator.astro";
 import { getAllPosts, getUniqueTags, groupPostsByYear } from "@/data/post";
-import { defaultLang, getLocalizedUrl, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { MAX_PINNED_POSTS, MAX_TAGS, POSTS_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getAllPosts(defaultLang);
-	const allPostsByDate = allPosts.sort(collectionDateSort);
-	const uniqueTags = getUniqueTags(allPosts).slice(0, MAX_TAGS);
-	const pinnedPosts = allPostsByDate
-		.values()
-		.filter((p) => p.data.pinned)
-		.take(MAX_PINNED_POSTS)
-		.toArray();
-	return paginate(allPostsByDate, {
-		pageSize: POSTS_PER_PAGE,
-		props: { uniqueTags, pinnedPosts },
-	});
+	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
+	const paths = [];
+
+	for (const lang of nonDefaultLangs) {
+		const allPosts = await getAllPosts(lang);
+		const allPostsByDate = allPosts.sort(collectionDateSort);
+		const uniqueTags = getUniqueTags(allPosts).slice(0, MAX_TAGS);
+		const pinnedPosts = allPostsByDate
+			.values()
+			.filter((p) => p.data.pinned)
+			.take(MAX_PINNED_POSTS)
+			.toArray();
+
+		const paginated = paginate(allPostsByDate, {
+			pageSize: POSTS_PER_PAGE,
+			params: { lang },
+			props: { uniqueTags, pinnedPosts, lang },
+		});
+		paths.push(...paginated);
+	}
+
+	return paths;
 }) satisfies GetStaticPaths;
 
 interface Props {
 	page: Page<CollectionEntry<"post">>;
 	uniqueTags: string[];
 	pinnedPosts: CollectionEntry<"post">[];
+	lang: Lang;
 }
 
-const { page, uniqueTags, pinnedPosts } = Astro.props;
+const { page, uniqueTags, pinnedPosts, lang } = Astro.props;
 const t = useTranslations(Astro.url);
 
 const meta = {
@@ -61,7 +72,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 <PageLayout meta={meta}>
 	<div class="mb-12 flex items-center gap-3">
 		<h1 class="title">{t.posts.title}</h1>
-		<a class="text-accent" href={getLocalizedUrl("rss.xml", defaultLang)} target="_blank">
+		<a class="text-accent" href={getLocalizedUrl("rss.xml", lang)} target="_blank">
 			<span class="sr-only">RSS feed</span>
 			<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
 		</a>
@@ -128,7 +139,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 							<li>
 								<a
 									class="cactus-link flex items-center justify-center"
-									href={getLocalizedUrl(`tags/${tag}`, defaultLang)}
+									href={getLocalizedUrl(`tags/${tag}`, lang)}
 								>
 									<span aria-hidden="true">#</span>
 									<span class="sr-only">{t.tags.viewPostsWithTag}</span>
@@ -138,7 +149,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						))}
 					</ul>
 					<span class="mt-4 block sm:text-end">
-						<a class="hover:text-link" href={getLocalizedUrl("tags", defaultLang)}>
+						<a class="hover:text-link" href={getLocalizedUrl("tags", lang)}>
 							{t.tags.viewAll} <span aria-hidden="true">→</span>
 							<span class="sr-only">{t.tags.blogTags}</span>
 						</a>

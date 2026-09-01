@@ -2,16 +2,18 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
+import { getLocalizedUrl, getPostLanguage, useTranslations } from "@/i18n";
 
 interface Props {
 	content: CollectionEntry<"post">;
 	readingTime: string;
 }
 
-const {
-	content: { data },
-	readingTime,
-} = Astro.props;
+const { content, readingTime } = Astro.props;
+
+const { data } = content;
+const postLang = getPostLanguage(content);
+const t = useTranslations(postLang);
 ---
 
 {
@@ -28,20 +30,20 @@ const {
 		</div>
 	)
 }
-{data.draft ? <span class="text-base text-red-500">(Draft)</span> : null}
+{data.draft ? <span class="text-base text-red-500">({t.blog.draft})</span> : null}
 <h1 class="title">
 	{data.title}
 </h1>
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 	<p class="font-semibold">
-		<FormattedDate date={data.publishDate} /> /{" "}
+		<FormattedDate date={data.publishDate} locale={t.locale} /> /{" "}
 		{readingTime}
 	</p>
 	{
 		data.updatedDate && (
 			<span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
-				Updated:
-				<FormattedDate class="ms-1" date={data.updatedDate} />
+				{t.blog.lastUpdated}:
+				<FormattedDate class="ms-1" date={data.updatedDate} locale={t.locale} />
 			</span>
 		)
 	}
@@ -70,7 +72,7 @@ const {
 				<>
 					{/* prettier-ignore */}
 					<span class="contents">
-						<a class="cactus-link inline-block before:content-['#']" data-pagefind-filter={`tag:${tag}`} href={`/tags/${tag}/`}><span class="sr-only">View more blogs with the tag&nbsp;</span>{tag}
+						<a class="cactus-link inline-block before:content-['#']" data-pagefind-filter={`tag:${tag}`} href={getLocalizedUrl(`tags/${tag}`, postLang)}><span class="sr-only">{t.blog.viewMoreWithTag}&nbsp;</span>{tag}
 						</a>{i < data.tags.length - 1 && ", "}
 					</span>
 				</>

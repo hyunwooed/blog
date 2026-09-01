@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { useTranslations } from "@/i18n";
 import type { WebmentionsChildren } from "@/types";
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const { mentions } = Astro.props;
+const t = useTranslations(Astro.url);
 const MAX_LIKES = 10;
 
 const likes = mentions.filter((mention) => mention["wm-property"] === "like-of");
@@ -20,7 +22,7 @@ const likesToShow = likes
 		<div>
 			<p class="text-accent-2 mb-0">
 				<strong>{likes.length}</strong>
-				{likes.length > 1 ? " People" : " Person"} liked this
+				{likes.length > 1 ? ` ${t.webmentions.peopleLiked}` : ` ${t.webmentions.personLiked}`}
 			</p>
 			{!!likesToShow.length && (
 				<ul class="flex list-none flex-wrap overflow-hidden ps-2" role="list">

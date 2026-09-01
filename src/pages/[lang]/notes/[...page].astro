@@ -4,22 +4,35 @@ import type { GetStaticPaths, Page } from "astro";
 import Note from "@/components/note/Note.astro";
 import Pagination from "@/components/Paginator.astro";
 import { getAllNotes } from "@/data/post";
-import { defaultLang, useTranslations } from "@/i18n";
+import { defaultLang, type Lang, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { NOTES_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allNotes = await getAllNotes(defaultLang);
-	const allNotesByDate = allNotes.sort(collectionDateSort);
-	return paginate(allNotesByDate, { pageSize: NOTES_PER_PAGE });
+	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
+	const paths = [];
+
+	for (const lang of nonDefaultLangs) {
+		const allNotes = await getAllNotes(lang);
+		const allNotesByDate = allNotes.sort(collectionDateSort);
+		const paginated = paginate(allNotesByDate, {
+			pageSize: NOTES_PER_PAGE,
+			params: { lang },
+			props: { lang },
+		});
+		paths.push(...paginated);
+	}
+
+	return paths;
 }) satisfies GetStaticPaths;
 
 interface Props {
 	page: Page<CollectionEntry<"note">>;
+	lang: Lang;
 }
 
-const { page } = Astro.props;
+const { page, lang } = Astro.props;
 const t = useTranslations(Astro.url);
 
 const meta = {

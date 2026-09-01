@@ -1,9 +1,26 @@
 import { type CollectionEntry, getCollection } from "astro:content";
+import { getPostLanguage, type Lang } from "@/i18n";
 
-/** filter out draft posts based on the environment */
-export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
-	return await getCollection("post", ({ data }) => {
-		return import.meta.env.PROD ? !data.draft : true;
+/** filter out draft posts based on the environment and optionally by language */
+export async function getAllPosts(lang?: Lang): Promise<CollectionEntry<"post">[]> {
+	return await getCollection("post", ({ data, id }) => {
+		const isNotDraft = import.meta.env.PROD ? !data.draft : true;
+		if (!isNotDraft) return false;
+		if (!lang) return true;
+		return getPostLanguage({ data, id }) === lang;
+	});
+}
+
+/** filter posts by language */
+export async function getPostsByLang(lang: Lang): Promise<CollectionEntry<"post">[]> {
+	return getAllPosts(lang);
+}
+
+/** filter notes by language */
+export async function getAllNotes(lang?: Lang): Promise<CollectionEntry<"note">[]> {
+	return await getCollection("note", ({ data, id }) => {
+		if (!lang) return true;
+		return getPostLanguage({ data, id }) === lang;
 	});
 }
 

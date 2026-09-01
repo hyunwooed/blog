@@ -8,6 +8,7 @@ import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
+import { defaultLang, languageCodes } from "./src/i18n";
 import { satteriAdmonitionsPlugin } from "./src/plugins/admonitions";
 import { satteriGithubCardPlugin } from "./src/plugins/github-cards";
 import {
@@ -22,6 +23,13 @@ import { expressiveCodeOptions, siteConfig } from "./src/site.config";
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.url,
+	i18n: {
+		defaultLocale: defaultLang,
+		locales: [...languageCodes],
+		routing: {
+			prefixDefaultLocale: false,
+		},
+	},
 	image: {
 		domains: ["webmention.io"],
 	},

@@ -1,18 +1,32 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths } from "astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Note from "@/components/note/Note.astro";
 import SocialList from "@/components/SocialList.astro";
 import { getAllNotes, getAllPosts } from "@/data/post";
-import { defaultLang, getLocalizedUrl, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { MAX_HOME_NOTES, MAX_PINNED_POSTS, POSTS_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
 
+export const getStaticPaths = (() => {
+	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
+	return nonDefaultLangs.map((lang) => ({
+		params: { lang },
+		props: { lang },
+	}));
+}) satisfies GetStaticPaths;
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
 const t = useTranslations(Astro.url);
 
 // Posts
-const allPosts = await getAllPosts(defaultLang);
+const allPosts = await getAllPosts(lang);
 const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
 const latestPosts = allPostsByDate.slice(0, POSTS_PER_PAGE);
 
@@ -24,7 +38,7 @@ const pinnedPosts = allPostsByDate
 	.toArray();
 
 // Notes
-const allNotes = await getAllNotes(defaultLang);
+const allNotes = await getAllNotes(lang);
 const latestNotes = allNotes
 	.sort(collectionDateSort)
 	.slice(0, MAX_HOME_NOTES) as CollectionEntry<"note">[];
@@ -52,7 +66,7 @@ const latestNotes = allNotes
 	}
 	<section class="mt-16">
 		<h2 class="title text-accent mb-6 text-xl">
-			<a href={getLocalizedUrl("posts", defaultLang)}>{t.home.posts}</a>
+			<a href={getLocalizedUrl("posts", lang)}>{t.home.posts}</a>
 		</h2>
 		<ul class="space-y-4" role="list">
 			{
@@ -68,7 +82,7 @@ const latestNotes = allNotes
 		latestNotes.length > 0 && (
 			<section class="mt-16">
 				<h2 class="title text-accent mb-6 text-xl">
-					<a href={getLocalizedUrl("notes", defaultLang)}>{t.home.notes}</a>
+					<a href={getLocalizedUrl("notes", lang)}>{t.home.notes}</a>
 				</h2>
 				<ul class="space-y-6" role="list">
 					{latestNotes.map((note) => (

@@ -14,15 +14,20 @@ media_folder: /public/uploads
 public_folder: /uploads
 
 collections:
-  - name: posts
-    label: Posts
-    label_singular: Post
+  # ----------------------------------------
+  # Posts (English & Korean)
+  # ----------------------------------------
+  - name: posts_en
+    label: "Posts (English)"
+    label_singular: "English Post"
     folder: /content/posts
+    create: true
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string }
       - { label: Published Date, name: publishDate, widget: datetime, type: date }
       - { label: Updated Date, name: updatedDate, widget: datetime, type: date, required: false }
+      - { label: Language, name: lang, widget: hidden, default: en }
       - { label: Tags, name: tags, widget: list, required: false }
       - name: coverImage
         label: Cover Image
@@ -40,13 +45,48 @@ collections:
       default:
         field: publishDate
         direction: descending
-  - name: notes
-    label: Notes
-    label_singular: Note
+
+  - name: posts_ko
+    label: "글 목록 (한국어)"
+    label_singular: "한국어 글"
+    folder: /content/posts/ko
+    create: true
+    fields:
+      - { label: 제목, name: title, widget: string }
+      - { label: 설명, name: description, widget: string }
+      - { label: 발행일, name: publishDate, widget: datetime, type: date }
+      - { label: 수정일, name: updatedDate, widget: datetime, type: date, required: false }
+      - { label: 언어, name: lang, widget: hidden, default: ko }
+      - { label: 태그, name: tags, widget: list, required: false }
+      - name: coverImage
+        label: 대표 이미지
+        widget: object
+        required: false
+        fields:
+          - { name: src, label: 이미지 경로, widget: image }
+          - { name: alt, label: 대체 텍스트, widget: string }
+      - { label: OG Image, name: ogImage, widget: image, required: false }
+      - { label: 임시저장, name: draft, widget: boolean, required: false }
+      - { label: 상단 고정, name: pinned, widget: boolean, required: false }
+      - { label: 본문, name: body, widget: richtext }
+    sortable_fields:
+      fields: [title, publishDate, updatedDate, tags]
+      default:
+        field: publishDate
+        direction: descending
+
+  # ----------------------------------------
+  # Notes (English & Korean)
+  # ----------------------------------------
+  - name: notes_en
+    label: "Notes (English)"
+    label_singular: "English Note"
     folder: /content/notes
+    create: true
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string, required: false }
+      - { label: Language, name: lang, widget: hidden, default: en }
       - { label: Published Date, name: publishDate, widget: datetime, output_utc: true }
       - { label: Body, name: body, widget: richtext }
     sortable_fields:
@@ -54,13 +94,58 @@ collections:
       default:
         field: publishDate
         direction: descending
-  - name: tags
-    label: Tags
-    label_singular: Tag
+
+  - name: notes_ko
+    label: "노트 (한국어)"
+    label_singular: "한국어 노트"
+    folder: /content/notes/ko
+    create: true
+    fields:
+      - { label: 제목, name: title, widget: string }
+      - { label: 설명, name: description, widget: string, required: false }
+      - { label: 언어, name: lang, widget: hidden, default: ko }
+      - { label: 발행일, name: publishDate, widget: datetime, output_utc: true }
+      - { label: 본문, name: body, widget: richtext }
+    sortable_fields:
+      fields: [title, publishDate]
+      default:
+        field: publishDate
+        direction: descending
+
+  # ----------------------------------------
+  # Tags (English & Korean)
+  # ----------------------------------------
+  - name: tags_en
+    label: "Tags (English)"
+    label_singular: "English Tag"
     folder: /content/tags
+    create: true
     fields:
       - { label: Title, name: title, widget: string, required: false }
       - { label: Description, name: description, widget: string, required: false }
+      - { label: Body, name: body, widget: richtext }
+
+  - name: tags_ko
+    label: "태그 (한국어)"
+    label_singular: "한국어 태그"
+    folder: /content/tags/ko
+    create: true
+    fields:
+      - { label: 제목, name: title, widget: string, required: false }
+      - { label: 설명, name: description, widget: string, required: false }
+      - { label: 본문, name: body, widget: richtext }
+
+  # ----------------------------------------
+  # About Pages
+  # ----------------------------------------
+  - name: about
+    label: "About Pages (소개)"
+    label_singular: "About Page"
+    folder: /content/about
+    create: false
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string }
       - { label: Body, name: body, widget: richtext }
 
 media_libraries:

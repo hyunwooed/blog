@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { defaultLang, languageCodes } from "./i18n";
 
 function removeDupsAndLowerCase(array: string[]) {
 	return [...new Set(array.map((str) => str.toLowerCase()))];
@@ -24,6 +25,7 @@ const post = defineCollection({
 				})
 				.optional(),
 			draft: z.boolean().default(false),
+			lang: z.enum(languageCodes).default(defaultLang),
 			ogImage: z.string().optional(),
 			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
 			publishDate: z
@@ -43,12 +45,13 @@ const note = defineCollection({
 	loader: glob({ base: "./content/notes", pattern: "**/*.{md,mdx}" }),
 	schema: baseSchema.extend({
 		description: z.string().optional(),
+		lang: z.enum(languageCodes).default(defaultLang),
 		publishDate: z.preprocess(
-				(val) => (val instanceof Date ? val.toISOString() : val),
-				z.iso
-					.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
-					.transform((val) => new Date(val)),
-			)
+			(val) => (val instanceof Date ? val.toISOString() : val),
+			z.iso
+				.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
+				.transform((val) => new Date(val)),
+		),
 	}),
 });
 
@@ -60,4 +63,12 @@ const tag = defineCollection({
 	}),
 });
 
-export const collections = { post, note, tag };
+const about = defineCollection({
+	loader: glob({ base: "./content/about", pattern: "**/*.{md,mdx}" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+	}),
+});
+
+export const collections = { post, note, tag, about };

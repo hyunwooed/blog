@@ -1,9 +1,10 @@
 import type { APIContext, InferGetStaticPropsType } from "astro";
 import satori, { type SatoriOptions } from "satori";
 import sharp from "sharp";
-import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
-import RobotoMono from "@/assets/roboto-mono-regular.ttf";
+import NotoSansKRBold from "@/assets/noto-sans-kr-bold.ttf";
+import NotoSansKRRegular from "@/assets/noto-sans-kr-regular.ttf";
 import { getAllPosts } from "@/data/post";
+import { defaultLang, getPostLanguage, useTranslations } from "@/i18n";
 import { getFormattedDate } from "@/utils/date";
 import { readCache, writeToCache } from "./_cacheUtil";
 import { ogMarkup } from "./_ogMarkup";
@@ -12,14 +13,14 @@ const ogOptions: SatoriOptions = {
 	// debug: true,
 	fonts: [
 		{
-			data: Buffer.from(RobotoMono),
-			name: "Roboto Mono",
+			data: Buffer.from(NotoSansKRRegular),
+			name: "Noto Sans KR",
 			style: "normal",
 			weight: 400,
 		},
 		{
-			data: Buffer.from(RobotoMonoBold),
-			name: "Roboto Mono",
+			data: Buffer.from(NotoSansKRBold),
+			name: "Noto Sans KR",
 			style: "normal",
 			weight: 700,
 		},
@@ -31,16 +32,21 @@ const ogOptions: SatoriOptions = {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export async function GET(context: APIContext) {
-	const { pubDate, title } = context.props as Props;
+	const { lang = defaultLang, pubDate, title } = context.props as Props;
 
 	// check the og-image cache
 	let pngBuffer = readCache(title, pubDate);
 	if (!pngBuffer) {
 		console.info(`Generating new OG image for: ${title}`);
-		const postDate = getFormattedDate(pubDate, {
-			month: "long",
-			weekday: "long",
-		});
+		const locale = useTranslations(lang).locale;
+		const postDate = getFormattedDate(
+			pubDate,
+			{
+				month: "long",
+				weekday: "long",
+			},
+			locale,
+		);
 		const svg = await satori(ogMarkup(title, postDate), ogOptions);
 		pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
 		writeToCache(title, pubDate, pngBuffer);
@@ -62,6 +68,7 @@ export async function getStaticPaths() {
 		.map((post) => ({
 			params: { slug: post.id },
 			props: {
+				lang: getPostLanguage(post),
 				pubDate: post.data.updatedDate ?? post.data.publishDate,
 				title: post.data.title,
 			},

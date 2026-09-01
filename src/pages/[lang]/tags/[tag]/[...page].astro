@@ -1,32 +1,45 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import type { GetStaticPaths, Page } from "astro";
 import { Icon } from "astro-icon/components";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Pagination from "@/components/Paginator.astro";
 import { getAllPosts, getTagMeta, getUniqueTags } from "@/data/post";
-import { defaultLang, getLocalizedUrl, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { POSTS_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getAllPosts(defaultLang);
-	const sortedPosts = allPosts.sort(collectionDateSort);
-	const uniqueTags = getUniqueTags(sortedPosts);
+	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
+	const paths = [];
 
-	return uniqueTags.flatMap((tag) => {
-		const postsWithTag = sortedPosts.filter((post) => post.data.tags.includes(tag));
-		return paginate(postsWithTag, {
-			pageSize: POSTS_PER_PAGE,
-			params: { tag },
-		});
-	});
+	for (const lang of nonDefaultLangs) {
+		const allPosts = await getAllPosts(lang);
+		const sortedPosts = allPosts.sort(collectionDateSort);
+		const uniqueTags = getUniqueTags(sortedPosts);
+
+		for (const tag of uniqueTags) {
+			const postsWithTag = sortedPosts.filter((post) => post.data.tags.includes(tag));
+			const paginated = paginate(postsWithTag, {
+				pageSize: POSTS_PER_PAGE,
+				params: { lang, tag },
+				props: { lang },
+			});
+			paths.push(...paginated);
+		}
+	}
+
+	return paths;
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+interface Props {
+	page: Page<CollectionEntry<"post">>;
+	lang: Lang;
+}
 
-const { page } = Astro.props as Props;
+const { page, lang } = Astro.props;
 const { tag } = Astro.params;
 const tagMeta = await getTagMeta(tag);
 const t = useTranslations(Astro.url);
@@ -34,7 +47,7 @@ const t = useTranslations(Astro.url);
 const TagContent = tagMeta ? (await render(tagMeta)).Content : null;
 
 const meta = {
-	description: tagMeta?.data.description ?? `${t.tags.viewPostsWithTag} - ${tag}`,
+	description: tagMeta?.data.description ?? `${tag} ${t.tags.viewPostsWithTag}`,
 	title: tagMeta?.data.title ?? `${t.tags.postsAbout} ${tag}`,
 };
 
@@ -58,7 +71,7 @@ const paginationProps = {
 	<nav class="mb-8" aria-label="Breadcrumbs">
 		<ul class="flex items-center">
 			<li class="flex items-center">
-				<a class="text-accent" href={getLocalizedUrl("tags", defaultLang)}>{t.tags.title}</a>
+				<a class="text-accent" href={getLocalizedUrl("tags", lang)}>{t.tags.title}</a>
 				<Icon aria-hidden="true" name="mdi:chevron-right" class="mx-1.5" />
 			</li>
 			<li aria-current="page"><span aria-hidden="true">#</span>{tag}</li>

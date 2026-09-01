@@ -2,6 +2,7 @@
 import { type CollectionEntry, render } from "astro:content";
 import type { HTMLTag, Polymorphic } from "astro/types";
 import FormattedDate from "@/components/FormattedDate.astro";
+import { getEntryUrl, getPostLanguage, useTranslations } from "@/i18n";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	note: CollectionEntry<"note">;
@@ -9,6 +10,8 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 };
 
 const { as: Tag = "div", note, isPreview = false } = Astro.props;
+const noteLang = getPostLanguage(note);
+const noteHref = getEntryUrl(note, noteLang);
 const { Content } = await render(note);
 ---
 
@@ -19,7 +22,7 @@ const { Content } = await render(note);
 	<Tag class="title" class:list={{ "text-base": isPreview }}>
 		{
 			isPreview ? (
-				<a class="cactus-link" href={`/notes/${note.id}/`}>
+				<a class="cactus-link" href={noteHref}>
 					{note.data.title}
 				</a>
 			) : (
@@ -36,6 +39,7 @@ const { Content } = await render(note);
 			day: "2-digit",
 		}}
 		date={note.data.publishDate}
+		locale={useTranslations(noteLang).locale}
 	/>
 	<div
 		class="prose prose-sm prose-cactus mt-4 max-w-none [&>p:last-of-type]:mb-0"

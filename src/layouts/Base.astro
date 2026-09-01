@@ -4,21 +4,30 @@ import Footer from "@/components/layout/Footer.astro";
 import Header from "@/components/layout/Header.astro";
 import SkipLink from "@/components/SkipLink.astro";
 import ThemeProvider from "@/components/ThemeProvider.astro";
+import { getLangFromUrl, type Lang, useTranslations } from "@/i18n";
 import { siteConfig } from "@/site.config";
 import type { SiteMeta } from "@/types";
 
 interface Props {
 	meta: SiteMeta;
+	lang?: Lang;
 }
 
 const {
 	meta: { articleDate, description = siteConfig.description, ogImage, title },
+	lang = getLangFromUrl(Astro.url),
 } = Astro.props;
 ---
 
-<html class="scroll-smooth" lang={siteConfig.lang}>
+<html class="scroll-smooth" lang={useTranslations(lang).locale}>
 	<head>
-		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+		<BaseHead
+			articleDate={articleDate}
+			description={description}
+			ogImage={ogImage}
+			title={title}
+			lang={lang}
+		/>
 		<ThemeProvider />
 	</head>
 	<body
