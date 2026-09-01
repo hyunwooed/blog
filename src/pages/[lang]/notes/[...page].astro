@@ -1,10 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import type { GetStaticPaths, Page } from "astro";
+import { Icon } from "astro-icon/components";
 import Note from "@/components/note/Note.astro";
 import Pagination from "@/components/Paginator.astro";
 import { getAllNotes } from "@/data/post";
-import { defaultLang, type Lang, languageCodes, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { NOTES_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
@@ -59,6 +60,10 @@ const paginationProps = {
 <PageLayout meta={meta}>
 	<div class="mb-12 flex items-center gap-3">
 		<h1 class="title">{t.notes.title}</h1>
+		<a class="text-accent" href={getLocalizedUrl("notes/rss.xml", lang)} target="_blank">
+			<span class="sr-only">RSS feed</span>
+			<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
+		</a>
 	</div>
 	<ul class="space-y-8" role="list">
 		{

@@ -11,11 +11,6 @@ export async function getAllPosts(lang?: Lang): Promise<CollectionEntry<"post">[
 	});
 }
 
-/** filter posts by language */
-export async function getPostsByLang(lang: Lang): Promise<CollectionEntry<"post">[]> {
-	return getAllPosts(lang);
-}
-
 /** filter notes by language */
 export async function getAllNotes(lang?: Lang): Promise<CollectionEntry<"note">[]> {
 	return await getCollection("note", ({ data, id }) => {
