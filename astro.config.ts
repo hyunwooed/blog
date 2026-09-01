@@ -47,11 +47,6 @@ export default defineConfig({
 			icon: "public/icon.svg", // the source for generating favicon & icons
 			icons: [
 				{
-					src: "icons/apple-touch-icon.png", // used in src/components/BaseHead.astro L:26
-					sizes: "180x180",
-					type: "image/png",
-				},
-				{
 					src: "icons/icon-192.png",
 					sizes: "192x192",
 					type: "image/png",
@@ -64,7 +59,7 @@ export default defineConfig({
 			],
 			start_url: "/",
 			background_color: "#1d1f21",
-			theme_color: "#2bbc8a",
+			theme_color: "#0033a0",
 			display: "standalone",
 			config: {
 				insertFaviconLinks: false,
