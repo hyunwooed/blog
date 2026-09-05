@@ -62,6 +62,8 @@ export const ko: LanguageInfo = {
 		nextPage: "다음 페이지 →",
 		previousTags: "← 이전 태그",
 		nextTags: "다음 태그 →",
+		previousNotes: "← 이전 노트",
+		nextNotes: "다음 노트 →",
 	},
 	search: {
 		openSearch: "검색 열기",

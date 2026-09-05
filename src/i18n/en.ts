@@ -60,6 +60,8 @@ export const en = {
 		nextPage: "Next Page →",
 		previousTags: "← Previous Tags",
 		nextTags: "Next Tags →",
+		previousNotes: "← Previous Notes",
+		nextNotes: "Next Notes →",
 	},
 	search: {
 		openSearch: "Open Search",

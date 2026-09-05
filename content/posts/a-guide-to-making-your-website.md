@@ -78,7 +78,7 @@ Once deployed on Vercel, you can use the same guide to add your domain to your p
 
 ## URL Shortener
 
-This is something that was briefly mentioned in a previous post on [Why Websites?](Why%20Websites%2058d63c47865340e98b9bee661ed62a33.md), but like many of the examples mentioned above, we can use projects publicly available to set up our own URL shortener, like I do with `go.hyunwoo.org`. Some projects include:
+This is something that was briefly mentioned in a previous post on [Why Websites?](/posts/why-websites/), but like many of the examples mentioned above, we can use projects publicly available to set up our own URL shortener, like I do with `go.hyunwoo.org`. Some projects include:
 
 - [GitHub - jstayton/suri: Your own link shortener that's easily deployed as a static site (for free)](https://github.com/jstayton/suri)
 - [GitHub - xyTom/Url-Shorten-Worker: A URL Shortener created using Cloudflare worker](https://github.com/xyTom/Url-Shorten-Worker)

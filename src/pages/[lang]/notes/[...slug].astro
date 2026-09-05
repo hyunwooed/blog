@@ -28,7 +28,7 @@ interface Props {
 	lang: Lang;
 }
 
-const { note, lang } = Astro.props;
+const { note, lang } = Astro.props as Props;
 const t = useTranslations(Astro.url);
 
 const meta = {
@@ -39,6 +39,6 @@ const meta = {
 };
 ---
 
-<PageLayout meta={meta}>
+<PageLayout lang={lang} meta={meta}>
 	<Note as="h1" note={note} />
 </PageLayout>
