@@ -26,7 +26,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { page } = Astro.props as Props;
+const { page } = Astro.props;
 const { tag } = Astro.params;
 const tagMeta = await getTagMeta(tag);
 const t = useTranslations(Astro.url);

@@ -1,7 +1,7 @@
 ---
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
-import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 
 export const getStaticPaths = (async () => {
@@ -20,13 +20,10 @@ export const getStaticPaths = (async () => {
 	return paths;
 }) satisfies GetStaticPaths;
 
-interface Props {
-	allTags: [string, number][];
-	lang: Lang;
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { allTags, lang } = Astro.props;
-const t = useTranslations(Astro.url);
+const t = useTranslations(lang);
 
 const meta = {
 	description: t.tags.description,
@@ -34,7 +31,7 @@ const meta = {
 };
 ---
 
-<PageLayout meta={meta}>
+<PageLayout lang={lang} meta={meta}>
 	<h1 class="title mb-6">{t.tags.title}</h1>
 	<ul class="space-y-4">
 		{

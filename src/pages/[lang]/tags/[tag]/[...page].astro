@@ -1,12 +1,11 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
-import type { GetStaticPaths, Page } from "astro";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { Icon } from "astro-icon/components";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Pagination from "@/components/Paginator.astro";
 import { getAllPosts, getTagMeta, getUniqueTags } from "@/data/post";
-import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { POSTS_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
@@ -34,15 +33,12 @@ export const getStaticPaths = (async ({ paginate }) => {
 	return paths;
 }) satisfies GetStaticPaths;
 
-interface Props {
-	page: Page<CollectionEntry<"post">>;
-	lang: Lang;
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page, lang } = Astro.props;
 const { tag } = Astro.params;
 const tagMeta = await getTagMeta(tag);
-const t = useTranslations(Astro.url);
+const t = useTranslations(lang);
 
 const TagContent = tagMeta ? (await render(tagMeta)).Content : null;
 
@@ -67,7 +63,7 @@ const paginationProps = {
 };
 ---
 
-<PageLayout meta={meta}>
+<PageLayout lang={lang} meta={meta}>
 	<nav class="mb-8" aria-label="Breadcrumbs">
 		<ul class="flex items-center">
 			<li class="flex items-center">

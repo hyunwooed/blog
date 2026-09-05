@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { type Lang, useTranslations } from "@/i18n";
+import { useTranslations } from "@/i18n";
 import { getFormattedDate } from "@/utils/date";
 
 type Props = HTMLAttributes<"time"> & {
@@ -12,7 +12,7 @@ type Props = HTMLAttributes<"time"> & {
 const {
 	date,
 	dateTimeOptions,
-	locale = Astro.currentLocale ? useTranslations(Astro.currentLocale as Lang).locale : undefined,
+	locale = Astro.currentLocale ? useTranslations(Astro.currentLocale).locale : undefined,
 	...attrs
 } = Astro.props;
 

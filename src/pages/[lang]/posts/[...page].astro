@@ -1,11 +1,10 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import type { GetStaticPaths, Page } from "astro";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { Icon } from "astro-icon/components";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Pagination from "@/components/Paginator.astro";
 import { getAllPosts, getUniqueTags, groupPostsByYear } from "@/data/post";
-import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { MAX_PINNED_POSTS, MAX_TAGS, POSTS_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
@@ -35,15 +34,10 @@ export const getStaticPaths = (async ({ paginate }) => {
 	return paths;
 }) satisfies GetStaticPaths;
 
-interface Props {
-	page: Page<CollectionEntry<"post">>;
-	uniqueTags: string[];
-	pinnedPosts: CollectionEntry<"post">[];
-	lang: Lang;
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page, uniqueTags, pinnedPosts, lang } = Astro.props;
-const t = useTranslations(Astro.url);
+const t = useTranslations(lang);
 
 const meta = {
 	description: t.posts.description,
@@ -69,7 +63,7 @@ const groupedByYear = groupPostsByYear(page.data);
 const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 ---
 
-<PageLayout meta={meta}>
+<PageLayout lang={lang} meta={meta}>
 	<div class="mb-12 flex items-center gap-3">
 		<h1 class="title">{t.posts.title}</h1>
 		<a class="text-accent" href={getLocalizedUrl("rss.xml", lang)} target="_blank">

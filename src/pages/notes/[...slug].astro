@@ -15,7 +15,7 @@ export const getStaticPaths = (async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { note } = Astro.props as Props;
+const { note } = Astro.props;
 const t = useTranslations(Astro.url);
 
 const meta = {

@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Note from "@/components/note/Note.astro";
 import SocialList from "@/components/SocialList.astro";
 import { getAllNotes, getAllPosts } from "@/data/post";
-import { defaultLang, getLocalizedUrl, type Lang, languageCodes, useTranslations } from "@/i18n";
+import { defaultLang, getLocalizedUrl, languageCodes, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { MAX_HOME_NOTES, MAX_PINNED_POSTS, POSTS_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
@@ -18,12 +18,10 @@ export const getStaticPaths = (() => {
 	}));
 }) satisfies GetStaticPaths;
 
-interface Props {
-	lang: Lang;
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { lang } = Astro.props as Props;
-const t = useTranslations(Astro.url);
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 
 // Posts
 const allPosts = await getAllPosts(lang);
@@ -44,7 +42,7 @@ const latestNotes = allNotes
 	.slice(0, MAX_HOME_NOTES) as CollectionEntry<"note">[];
 ---
 
-<PageLayout meta={{ title: t.home.title }}>
+<PageLayout lang={lang} meta={{ title: t.home.title }}>
 	<section>
 		<h1 class="title mb-4">{t.home.heroName}</h1>
 		<p class="mb-4">{t.home.heroBio}</p>

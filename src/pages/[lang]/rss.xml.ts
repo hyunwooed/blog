@@ -4,7 +4,7 @@ import { getAllPosts } from "@/data/post";
 import {
 	defaultLang,
 	getEntryUrl,
-	type Lang,
+	isSupportedLang,
 	languageCodes,
 	languages,
 	useTranslations,
@@ -19,7 +19,7 @@ export const getStaticPaths = (() => {
 }) satisfies import("astro").GetStaticPaths;
 
 export const GET: APIRoute = async ({ params }) => {
-	const lang = (params.lang as Lang) ?? defaultLang;
+	const lang = isSupportedLang(params.lang) ? params.lang : defaultLang;
 	const posts = await getAllPosts(lang);
 	const t = useTranslations(lang);
 	const langLabel = languages[lang];

@@ -1,5 +1,11 @@
 ---
-import { getLangFromUrl, getLocalizedPath, type Lang, languages, useTranslations } from "@/i18n";
+import {
+	getLangFromUrl,
+	getLocalizedPath,
+	languageCodes,
+	languages,
+	useTranslations,
+} from "@/i18n";
 
 interface Props {
 	class?: string;
@@ -46,9 +52,9 @@ const t = useTranslations(currentLang);
 		aria-orientation="vertical"
 	>
 		{
-			Object.entries(languages).map(([code, label]) => {
+			languageCodes.map((code) => {
 				const isCurrent = code === currentLang;
-				const targetUrl = getLocalizedPath(currentPathname, code as Lang);
+				const targetUrl = getLocalizedPath(currentPathname, code);
 				return (
 					<a
 						href={targetUrl}
@@ -60,7 +66,7 @@ const t = useTranslations(currentLang);
 						role="menuitem"
 						aria-current={isCurrent ? "true" : undefined}
 					>
-						{label}
+						{languages[code]}
 					</a>
 				);
 			})

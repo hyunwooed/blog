@@ -92,11 +92,12 @@ const ogLocale = useTranslations(lang).ogLocale;
 	rel="alternate"
 	type="application/rss+xml"
 />
-{
-	lang === defaultLang && (
-		<link href="/notes/rss.xml" title="Notes" rel="alternate" type="application/rss+xml" />
-	)
-}
+<link
+	href={getLocalizedUrl("notes/rss.xml", lang)}
+	title="Notes"
+	rel="alternate"
+	type="application/rss+xml"
+/>
 
 {/* Webmentions */}
 {
