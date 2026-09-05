@@ -5,14 +5,12 @@ import {
 	defaultLang,
 	getEntryUrl,
 	isSupportedLang,
-	languageCodes,
-	languages,
+	nonDefaultLangs,
 	useTranslations,
 } from "@/i18n";
 import { siteConfig } from "@/site.config";
 
 export const getStaticPaths = (() => {
-	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
 	return nonDefaultLangs.map((lang) => ({
 		params: { lang },
 	}));
@@ -22,7 +20,7 @@ export const GET: APIRoute = async ({ params }) => {
 	const lang = isSupportedLang(params.lang) ? params.lang : defaultLang;
 	const posts = await getAllPosts(lang);
 	const t = useTranslations(lang);
-	const langLabel = languages[lang];
+	const langLabel = t.label;
 
 	return rss({
 		title: `${siteConfig.title} (${langLabel})`,

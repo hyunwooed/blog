@@ -5,13 +5,12 @@ import PostPreview from "@/components/blog/PostPreview.astro";
 import Note from "@/components/note/Note.astro";
 import SocialList from "@/components/SocialList.astro";
 import { getAllNotes, getAllPosts } from "@/data/post";
-import { defaultLang, getLocalizedUrl, languageCodes, useTranslations } from "@/i18n";
+import { getLocalizedUrl, nonDefaultLangs, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { MAX_HOME_NOTES, MAX_PINNED_POSTS, POSTS_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (() => {
-	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
 	return nonDefaultLangs.map((lang) => ({
 		params: { lang },
 		props: { lang },

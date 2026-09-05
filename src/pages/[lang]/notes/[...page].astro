@@ -4,13 +4,12 @@ import { Icon } from "astro-icon/components";
 import Note from "@/components/note/Note.astro";
 import Pagination from "@/components/Paginator.astro";
 import { getAllNotes } from "@/data/post";
-import { defaultLang, getLocalizedUrl, languageCodes, useTranslations } from "@/i18n";
+import { getLocalizedUrl, nonDefaultLangs, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 import { NOTES_PER_PAGE } from "@/site.config";
 import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
 	const paths = [];
 
 	for (const lang of nonDefaultLangs) {

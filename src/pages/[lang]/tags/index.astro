@@ -1,11 +1,10 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { getAllPosts, getUniqueTagsWithCount } from "@/data/post";
-import { defaultLang, getLocalizedUrl, languageCodes, useTranslations } from "@/i18n";
+import { getLocalizedUrl, nonDefaultLangs, useTranslations } from "@/i18n";
 import PageLayout from "@/layouts/Base.astro";
 
 export const getStaticPaths = (async () => {
-	const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
 	const paths = [];
 
 	for (const lang of nonDefaultLangs) {

@@ -3,26 +3,24 @@ import { ko } from "./ko";
 
 export type { LanguageInfo };
 
-export const supportedLanguages: Record<string, LanguageInfo> = {
+export const defaultLang = "en" as const;
+
+export const languages = {
 	en,
 	ko,
 };
 
-export const defaultLang: Lang = "en";
+export type Lang = keyof typeof languages;
 
-export type Lang = keyof typeof supportedLanguages;
+export const languageCodes = Object.keys(languages) as [Lang, ...Lang[]];
 
-export const languages = Object.fromEntries(
-	Object.entries(supportedLanguages).map(([code, info]) => [code, info.label]),
-) as Record<Lang, string>;
-
-export const languageCodes = Object.keys(supportedLanguages) as [Lang, ...Lang[]];
+export const nonDefaultLangs = languageCodes.filter((lang) => lang !== defaultLang);
 
 /**
  * Type guard to check if a value is a supported language code
  */
 export function isSupportedLang(lang: unknown): lang is Lang {
-	return typeof lang === "string" && lang in supportedLanguages;
+	return typeof lang === "string" && lang in languages;
 }
 
 /**
@@ -40,7 +38,7 @@ export function getLangFromUrl(url: URL | string | undefined): Lang {
  */
 export function useTranslations(target?: URL | string | Lang): LanguageInfo {
 	const lang = isSupportedLang(target) ? target : getLangFromUrl(target);
-	return supportedLanguages[lang] ?? (supportedLanguages[defaultLang] as LanguageInfo);
+	return languages[lang] ?? languages[defaultLang];
 }
 
 /**
