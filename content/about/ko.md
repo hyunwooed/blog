@@ -3,7 +3,7 @@ title: 소개
 description: 조현우 (Hyunwoo Jo) 소개
 ---
 
-안녕하세요! 저는 조지메이슨대학교에서 국제학을 전공하고 있는 **조현우** (Hyunwoo Jo)라고 합니다 세부전공으로는 글로벌 거버넌스와 미디어·커뮤니케이션·문화를, 부전공으로는 데이터과학과 데이터 분석을 공부하고 있습니다. 제 주요 관심 분야는 공공 정책 분석 및 개발, 국제 거버넌스와 기술 정책, 그리고 고등교육 행정입니다.
+안녕하세요! 저는 조지메이슨대학교에서 국제학을 전공하고 있는 **조현우** (Hyunwoo Jo)라고 합니다. 세부전공으로는 글로벌 거버넌스와 미디어·커뮤니케이션·문화를, 부전공으로는 데이터과학과 데이터 분석을 공부하고 있습니다. 제 주요 관심 분야는 공공 정책 분석 및 개발, 국제 거버넌스와 기술 정책, 그리고 고등교육 행정입니다.
 
 ## 학력
 
@@ -51,10 +51,9 @@ _대한민국 인천_
 
 ## 프로젝트 및 논문
 
-- **Accessible water quality monitoring through hybrid human–machine colorimetric methods**  
-  _Environmental Monitoring and Assessment_ · [DOI 링크](https://doi.org/10.1007/s10661-025-13983-x)  
+- **Accessible water quality monitoring through hybrid human–machine colorimetric methods**
+  _Environmental Monitoring and Assessment_ · [DOI 링크](https://doi.org/10.1007/s10661-025-13983-x)
   인천광역시 승기천의 수질 상태를 정량적으로 평가하고 실행 가능한 정책 제안을 도출하기 위해 혼합 연구 방법을 수행했습니다.
-- **The Case for Cybersecurity Cooperation in Northeast Asia: Songdo, Korea as a Minilateralist Model**  
-
-  _International Journal of Korean Studies (IJKS)_ · [논문 PDF](https://icks.org/wp-content/uploads/2026/04/IJKS-Hyunwoo-Jo-Vol-26-No-2-Proof.pdf)  
-  2026 인천평화안보포럼을 위해 작성된 논문으로, 미중 전략경쟁과 사이버 의존성이 교차하는 동북아 지역에서의 사이버 안보 협력 방안에 대해 연구했습니다.
+- **The Case for Cybersecurity Cooperation in Northeast Asia: Songdo, Korea as a Minilateralist Model**
+  _International Journal of Korean Studies (IJKS)_ · [논문 PDF](https://icks.org/wp-content/uploads/2026/04/IJKS-Hyunwoo-Jo-Vol-26-No-2-Proof.pdf)
+  2025 인천평화안보포럼을 위해 작성된 논문으로, 미중 전략경쟁과 사이버 의존성이 교차하는 동북아 지역에서의 사이버 안보 협력 방안에 대해 연구했습니다.
