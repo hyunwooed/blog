@@ -61,13 +61,12 @@ const comments = mentions.filter(
 									{mention.author?.name}
 								</p>
 								<a
-									aria-labelledby="cmt-source"
 									class="u-url not-prose hover:text-link"
 									href={mention.url}
 									rel="noreferrer"
 									target="_blank"
 								>
-									<span class="hidden" id="cmt-source">
+									<span class="sr-only">
 										{t.webmentions.visitSource}
 									</span>
 									<Icon

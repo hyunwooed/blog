@@ -42,7 +42,7 @@ const meta = {
 						&#35;{tag}
 					</a>
 					<span class="inline-block">
-						- {val} {t.tags.posts}
+						- {val} {val > 1 ? t.tags.posts : t.tags.post}
 					</span>
 				</li>
 			))

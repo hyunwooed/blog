@@ -31,8 +31,8 @@ const ogOptions: SatoriOptions = {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-export async function GET(context: APIContext) {
-	const { lang = defaultLang, pubDate, title } = context.props as Props;
+export async function GET(context: APIContext<Props>) {
+	const { lang = defaultLang, pubDate, title } = context.props;
 
 	// check the og-image cache
 	let pngBuffer = readCache(title, pubDate);

@@ -9,6 +9,7 @@ import {
 	useTranslations,
 } from "@/i18n";
 import { siteConfig } from "@/site.config";
+import { collectionDateSort } from "@/utils/date";
 
 export const getStaticPaths = (() => {
 	return nonDefaultLangs.map((lang) => ({
@@ -18,7 +19,7 @@ export const getStaticPaths = (() => {
 
 export const GET: APIRoute = async ({ params }) => {
 	const lang = isSupportedLang(params.lang) ? params.lang : defaultLang;
-	const posts = await getAllPosts(lang);
+	const posts = (await getAllPosts(lang)).sort(collectionDateSort);
 	const t = useTranslations(lang);
 	const langLabel = t.label;
 

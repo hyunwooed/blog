@@ -17,9 +17,8 @@ const currentPathname = Astro.url.pathname;
 const t = useTranslations(currentLang);
 ---
 
-<div class:list={["relative ms-2 sm:ms-4", className]}>
+<language-toggle class:list={["relative ms-2 sm:ms-4", className]}>
 	<button
-		id="language-toggle"
 		class="hover:text-accent relative h-9 w-9 cursor-pointer p-2"
 		type="button"
 		aria-label={t.global.language}
@@ -46,76 +45,95 @@ const t = useTranslations(currentLang);
 		</svg>
 	</button>
 	<div
-		id="language-menu"
 		class="bg-global-bg border-accent absolute top-full right-0 z-50 mt-1 hidden min-w-[120px] rounded-md border py-1 shadow-lg"
 		role="menu"
 		aria-orientation="vertical"
 	>
-		{
-			languageCodes.map((code) => {
-				const isCurrent = code === currentLang;
-				const targetUrl = getLocalizedPath(currentPathname, code);
-				return (
-					<a
-						href={targetUrl}
-						data-lang={code}
-						class:list={[
-							"block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700",
-							isCurrent ? "text-accent font-semibold" : "text-global-text",
-						]}
-						role="menuitem"
-						aria-current={isCurrent ? "true" : undefined}
-					>
-						{languages[code].label}
-					</a>
-				);
-			})
-		}
+		{languageCodes.map((code) => {
+			const isCurrent = code === currentLang;
+			const targetUrl = getLocalizedPath(currentPathname, code);
+			return (
+				<a
+					href={targetUrl}
+					data-lang={code}
+					class:list={[
+						"block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700",
+						isCurrent ? "text-accent font-semibold" : "text-global-text",
+					]}
+					role="menuitem"
+					aria-current={isCurrent ? "true" : undefined}
+				>
+					{languages[code].label}
+				</a>
+			);
+		})}
 	</div>
-</div>
+</language-toggle>
 
 <script>
-	function setupLanguageToggle() {
-		const toggle = document.getElementById("language-toggle");
-		const menu = document.getElementById("language-menu");
+	class LanguageToggle extends HTMLElement {
+		#abortController: AbortController | null = null;
 
-		if (!toggle || !menu) return;
+		connectedCallback() {
+			this.#abortController = new AbortController();
+			const { signal } = this.#abortController;
 
-		// Toggle menu visibility
-		toggle.addEventListener("click", (e) => {
-			e.stopPropagation();
-			const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-			toggle.setAttribute("aria-expanded", String(!isExpanded));
-			menu.classList.toggle("hidden");
-		});
+			const toggle = this.querySelector<HTMLButtonElement>("button");
+			const menu = this.querySelector<HTMLDivElement>('[role="menu"]');
 
-		// Save language choice to localStorage on click
-		menu.querySelectorAll<HTMLAnchorElement>("a[data-lang]").forEach((link) => {
-			link.addEventListener("click", () => {
-				const lang = link.getAttribute("data-lang");
-				if (lang) {
-					localStorage.setItem("preferred_lang", lang);
-				}
+			if (!toggle || !menu) return;
+
+			toggle.addEventListener(
+				"click",
+				(e) => {
+					e.stopPropagation();
+					const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+					toggle.setAttribute("aria-expanded", String(!isExpanded));
+					menu.classList.toggle("hidden");
+				},
+				{ signal },
+			);
+
+			menu.querySelectorAll<HTMLAnchorElement>("a[data-lang]").forEach((link) => {
+				link.addEventListener(
+					"click",
+					() => {
+						const lang = link.getAttribute("data-lang");
+						if (lang) {
+							localStorage.setItem("preferred_lang", lang);
+						}
+					},
+					{ signal },
+				);
 			});
-		});
 
-		// Close menu when clicking outside
-		document.addEventListener("click", (e) => {
-			if (!toggle.contains(e.target as Node) && !menu.contains(e.target as Node)) {
-				toggle.setAttribute("aria-expanded", "false");
-				menu.classList.add("hidden");
-			}
-		});
+			document.addEventListener(
+				"click",
+				(e) => {
+					if (!this.contains(e.target as Node)) {
+						toggle.setAttribute("aria-expanded", "false");
+						menu.classList.add("hidden");
+					}
+				},
+				{ signal },
+			);
 
-		// Close menu on escape key
-		document.addEventListener("keydown", (e) => {
-			if (e.key === "Escape") {
-				toggle.setAttribute("aria-expanded", "false");
-				menu.classList.add("hidden");
-			}
-		});
+			document.addEventListener(
+				"keydown",
+				(e) => {
+					if (e.key === "Escape") {
+						toggle.setAttribute("aria-expanded", "false");
+						menu.classList.add("hidden");
+					}
+				},
+				{ signal },
+			);
+		}
+
+		disconnectedCallback() {
+			this.#abortController?.abort();
+		}
 	}
 
-	setupLanguageToggle();
-	document.addEventListener("astro:page-load", setupLanguageToggle);
+	customElements.define("language-toggle", LanguageToggle);
 </script>

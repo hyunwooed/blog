@@ -15,24 +15,29 @@ const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url).href;
-const ogLocale = useTranslations(lang).ogLocale;
+const t = useTranslations(lang);
+const ogLocale = t.ogLocale;
 ---
 
 <meta charset="utf-8" />
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <title>{siteTitle}</title>
 
-{/* Language Preference Auto-Routing */}
-<script is:inline define:vars={{ defaultLang, languageCodes }}>
-	if (window.location.pathname === "/") {
-		const saved = localStorage.getItem("preferred_lang");
-		const target = saved && languageCodes.includes(saved) ? saved : defaultLang;
+{/* Language Preference Auto-Routing (Homepage only) */}
+{
+	Astro.url.pathname === "/" && (
+		<script is:inline define:vars={{ defaultLang, languageCodes }}>
+			if (window.location.pathname === "/") {
+				const saved = localStorage.getItem("preferred_lang");
+				const target = saved && languageCodes.includes(saved) ? saved : defaultLang;
 
-		if (target !== defaultLang) {
-			window.location.replace(`/${target}/`);
-		}
-	}
-</script>
+				if (target !== defaultLang) {
+					window.location.replace(`/${target}/`);
+				}
+			}
+		</script>
+	)
+}
 
 {/* Icons */}
 <link href="/icon.svg" rel="icon" type="image/svg+xml" />
@@ -88,13 +93,13 @@ const ogLocale = useTranslations(lang).ogLocale;
 {/* RSS auto-discovery */}
 <link
 	href={getLocalizedUrl("rss.xml", lang)}
-	title="Blog"
+	title={t.nav.blog}
 	rel="alternate"
 	type="application/rss+xml"
 />
 <link
 	href={getLocalizedUrl("notes/rss.xml", lang)}
-	title="Notes"
+	title={t.nav.notes}
 	rel="alternate"
 	type="application/rss+xml"
 />

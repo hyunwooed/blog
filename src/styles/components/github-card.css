@@ -70,7 +70,7 @@
 	}
 
 	&.gh-error {
-		.gh-avatar,
+		.gh-title .gh-avatar,
 		.gh-description,
 		.gh-chips {
 			@apply hidden;

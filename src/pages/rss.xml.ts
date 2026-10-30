@@ -1,14 +1,16 @@
 import rss from "@astrojs/rss";
 import { getAllPosts } from "@/data/post";
-import { defaultLang, getEntryUrl } from "@/i18n";
+import { defaultLang, getEntryUrl, useTranslations } from "@/i18n";
 import { siteConfig } from "@/site.config";
+import { collectionDateSort } from "@/utils/date";
 
 export const GET = async () => {
-	const posts = await getAllPosts(defaultLang);
+	const posts = (await getAllPosts(defaultLang)).sort(collectionDateSort);
+	const t = useTranslations(defaultLang);
 
 	return rss({
 		title: siteConfig.title,
-		description: siteConfig.description,
+		description: t.global.description,
 		site: import.meta.env.SITE,
 		items: posts.map((post) => ({
 			title: post.data.title,
